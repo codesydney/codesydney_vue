@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Backend for Code.Sydney",
-  "main": "server.js",
+  "main": "server.ts",
   "repository": "https://github.com/codesydney/codesydney.git",
   "authors": [
     "Promie Yutasane <promie@codesydney.org>",
@@ -10,7 +10,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "server": "nodemon src/server.ts"
+    "start": "node dist/server.js",
+    "server": "nodemon src/server.ts",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "cors": "^2.8.5",
