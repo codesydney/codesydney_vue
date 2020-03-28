@@ -4,5 +4,11 @@
   "description": "Backend for Code.Sydney",
   "main": "server.js",
   "repository": "https://github.com/codesydney/codesydney.git",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
