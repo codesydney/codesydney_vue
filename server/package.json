@@ -1,0 +1,8 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend for Code.Sydney",
+  "main": "server.js",
+  "repository": "https://github.com/codesydney/codesydney.git",
+  "license": "MIT"
+}
