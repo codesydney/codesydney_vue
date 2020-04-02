@@ -28,7 +28,7 @@ cd server
 yarn run server
 ```
 
-Before running the server, please ensure to download the config.env file from [CodeSydney Notion Page](https://www.notion.so/codesydney/ab0de16f3cea4ca78bed58151d46e7a9?v=f651d43fa39e4866ad1717cdc4638c29)
+Before running the server, please ensure to download the config.env file from [CodeSydney Notion Page](https://www.notion.so/codesydney/03371433860e4e9e89fa2b0ac5ba966e?v=921ca5c48f794c929ec35640dddb4877&p=68890827fd5f41d4835c648cc1e1895d)
 
 ### Development
 ```
