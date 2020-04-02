@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const Mongoose = require('./config/db')
 
 const app = express()
 
@@ -10,6 +11,11 @@ app.use(express.json({ extended: true }))
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => {
-  console.log(`App started on PORT ${PORT}`)
-})
+const startServer = async () => {
+  await Mongoose().initialiseMongoConnection()
+  app.listen(PORT, () => {
+    console.log(`App started on PORT ${PORT}`)
+  })
+}
+
+startServer()
