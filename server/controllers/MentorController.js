@@ -6,21 +6,34 @@ const MentorController = () => {
       const mentor = await Mentor.create(req.body)
 
       res.status(201).json({
-        status: 'success',
+        status: 'SUCCESS',
         data: {
-          mentor,
-        },
+          mentor
+        }
       })
-    } catch (err) {
+    } catch (error) {
       res.status(500).json({
-        status: 'failed',
-        message: err.message,
+        status: 'FAIL',
+        message: error.message
       })
     }
   }
 
-  const getMentors = (req, res, next) => {
-    console.log('GET ALL MENTORS')
+  const getMentors = async (req, res, next) => {
+    try {
+      const mentors = await Mentor.find()
+      res.status(200).json({
+        status: 'SUCCESS',
+        data: {
+          mentors
+        }
+      })
+    } catch (error) {
+      res.status(500).json({
+        status: 'FAIL',
+        message: error.message
+      })
+    }
   }
 
   return { createMentor, getMentors }
