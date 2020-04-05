@@ -9,9 +9,8 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json({ extended: true }))
 
-
 // Routes
-app.use('/api/v1/mentors', require('./routes/mentor'))
+app.use('/api/v1/mentors', require('./route/mentor'))
 
 const PORT = process.env.PORT || 5000
 

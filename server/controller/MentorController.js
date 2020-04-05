@@ -1,4 +1,4 @@
-const Mentor = require('../models/Mentor')
+const Mentor = require('../model/Mentor')
 
 const MentorController = () => {
   const createMentor = async (req, res, next) => {
@@ -8,13 +8,13 @@ const MentorController = () => {
       res.status(201).json({
         status: 'SUCCESS',
         data: {
-          mentor
-        }
+          mentor,
+        },
       })
     } catch (error) {
       res.status(500).json({
         status: 'FAIL',
-        message: error.message
+        message: error.message,
       })
     }
   }
@@ -25,13 +25,13 @@ const MentorController = () => {
       res.status(200).json({
         status: 'SUCCESS',
         data: {
-          mentors
-        }
+          mentors,
+        },
       })
     } catch (error) {
       res.status(500).json({
         status: 'FAIL',
-        message: error.message
+        message: error.message,
       })
     }
   }
