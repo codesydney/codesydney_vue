@@ -1,0 +1,1 @@
+DELETE http://localhost:3000/api/v1/mentors/5e897afeddbd502ed8d7c62a
