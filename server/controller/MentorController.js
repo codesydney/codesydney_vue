@@ -19,7 +19,7 @@ const MentorController = () => {
     const mentors = await Mentor.find()
 
     res.status(constants.httpStatus.ok).json({
-      status: constants.result.success,
+      status: constants.status,
       data: {
         mentors,
       },
