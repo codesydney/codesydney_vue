@@ -1,0 +1,9 @@
+POST http://localhost:5000/api/v1/mentors/
+content-type: application/json
+
+{  
+    "photo": "true",
+    "fullName": "Mentor 10",
+    "title": "Prashanga's test",
+    "description": "I love testing"
+} 
