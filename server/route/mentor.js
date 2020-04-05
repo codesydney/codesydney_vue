@@ -8,4 +8,6 @@ router
   .post(MentorController().createMentor)
   .get(MentorController().getMentors)
 
+// Create a route to get a single mentor
+
 module.exports = router

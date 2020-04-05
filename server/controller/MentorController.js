@@ -30,6 +30,20 @@ const MentorController = () => {
     }
   }
 
+  // use the catchAsyc on all function in controller
+
+  const getMentor = (req, res, next) => {
+    console.log('Get Montor')
+  }
+
+  const updateMentor = (req, res, next) => {
+    console.log('Get Montor')
+  }
+
+  const deleteMentor = (req, res, next) => {
+    console.log('Get Montor')
+  }
+
   return { createMentor, getMentors }
 }
 
