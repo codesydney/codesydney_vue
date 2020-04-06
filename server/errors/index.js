@@ -2,4 +2,9 @@ const NotFoundError = require('./NotFoundError')
 
 const PreconditionError = require('./PreconditionError')
 
-module.exports = { NotFoundError, PreconditionError }
+const UnauthorizedError = require('./UnauthorizedError')
+
+const ForbiddenError = require('./ForbiddenError')
+
+
+module.exports = { NotFoundError, PreconditionError, UnauthorizedError, ForbiddenError }

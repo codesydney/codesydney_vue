@@ -1,8 +1,7 @@
 const express = require('express')
-const MentorController = require('../controller/MentorController')
+const { mentorController } = require('../controller')
 
 const router = express.Router()
-const mentorController = MentorController()
 
 router
   .route('/')
