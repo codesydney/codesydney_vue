@@ -9,7 +9,6 @@ router
   .post(mentorController.createMentor)
   .get(mentorController.getMentors)
 
-// Create a route to get a single mentor
 router
   .route('/:mentorId')
   .get(mentorController.getMentor)

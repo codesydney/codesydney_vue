@@ -3,6 +3,7 @@ const Mentor = require('../model/Mentor')
 const { NotFoundError } = require('../errors')
 const constants = require('../constant')
 
+
 const MentorController = () => {
   const createMentor = catchAsync(async (req, res, next) => {
     const mentor = await Mentor.create(req.body)
@@ -26,7 +27,6 @@ const MentorController = () => {
     })
   })
 
-  // use the catchAsyc on all function in controller
   const getMentor = catchAsync(async (req, res, next) => {
     const mentor = await Mentor.findById(req.params.mentorId)
 
