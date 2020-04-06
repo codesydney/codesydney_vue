@@ -1,4 +1,4 @@
-const NotFoundError = function ForbiddenError(message) {
+const NotFoundError = function NotFoundError(message) {
   if (!new.target) {
     return new NotFoundError(message)
   }

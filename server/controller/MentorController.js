@@ -8,8 +8,8 @@ const MentorController = () => {
   const createMentor = catchAsync(async (req, res, next) => {
     const mentor = await Mentor.create(req.body)
 
-    res.status(201).json({
-      status: 'SUCCESS',
+    res.status(constants.httpStatus.created).json({
+      status: constants.result.success,
       data: {
         mentor,
       },
@@ -20,7 +20,7 @@ const MentorController = () => {
     const mentors = await Mentor.find()
 
     res.status(constants.httpStatus.ok).json({
-      status: constants.status,
+      status: constants.result.success,
       data: {
         mentors,
       },
@@ -34,8 +34,8 @@ const MentorController = () => {
       return next(NotFoundError('No mentor with this ID'))
     }
 
-    res.status(200).json({
-      status: 'SUCCESS',
+    res.status(constants.httpStatus.ok).json({
+      status: constants.result.success,
       data: {
         mentor,
       },
@@ -48,9 +48,11 @@ const MentorController = () => {
       req.body,
       { new: true }
     )
-
-    res.status(200).json({
-      status: 'SUCCESS',
+    if (!mentor) {
+      return next(NotFoundError('No mentor with this ID'))
+    }
+    res.status(constants.httpStatus.ok).json({
+      status: constants.result.success,
       data: {
         mentor,
       },
@@ -60,18 +62,15 @@ const MentorController = () => {
   const deleteMentor = catchAsync(async (req, res, next) => {
     const mentor = await Mentor.findByIdAndRemove(req.params.mentorId)
 
-    if (mentor) {
-      res.status(200).json({
-        status: 'SUCCESS',
-        data: {
-          mentor,
-        },
-      })
-    } else {
-      res.status(404).json({
-        status: 'NOT FOUND',
-      })
+    if (!mentor) {
+      return next(NotFoundError('No mentor with this ID'))
     }
+    res.status(constants.httpStatus.ok).json({
+      status: constants.result.success,
+      data: {
+        mentor,
+      },
+    });
   })
 
   return { createMentor, getMentors, getMentor, deleteMentor, updateMentor }

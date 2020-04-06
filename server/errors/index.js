@@ -1,3 +1,5 @@
 const NotFoundError = require('./NotFoundError')
 
-module.exports = { NotFoundError }
+const PreconditionError = require('./PreconditionError')
+
+module.exports = { NotFoundError, PreconditionError }

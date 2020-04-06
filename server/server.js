@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const Mongoose = require('./config/db')
 const { globalErrorHandler } = require('./middleware')
-const { NotFoundError } = require('./errors')
+const { PreconditionError } = require('./errors')
 
 const app = express()
 
@@ -16,7 +16,7 @@ app.use('/api/v1/mentors', require('./route/mentor'))
 
 // Handling Unhandled Routes
 app.all('*', (req, res, next) => {
-  next(new NotFoundError(`Can't find ${req.originalUrl} on this server!`))
+  next(new PreconditionError(`Can't find ${req.originalUrl} on this server!`))
 })
 
 app.use(globalErrorHandler)
