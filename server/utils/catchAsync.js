@@ -1,6 +1,14 @@
+const {errorHandler} = require('../utils/errorHandler')
+
 const catchAsync = (fn) => {
-  return (req, res, next) => {
-    fn(req, res, next).catch(next)
+  return async (req, res, next) => {
+    try{
+      const response = await fn(req, res, next)
+      res.status(response.code).json(response.payload)
+    }
+    catch(e){
+      errorHandler(e, res)
+    }
   }
 }
 

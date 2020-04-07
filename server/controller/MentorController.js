@@ -1,77 +1,98 @@
+const path = require('path')
 const catchAsync = require('../utils/catchAsync')
 const Mentor = require('../model/Mentor')
-const { NotFoundError } = require('../errors')
 const constants = require('../constant')
-
+const {resFormatter} = require('../utils/resFormatter')
+const {UnprocessableRequestException, FileUploadFailedException, RecordWithIdNotFoundException} = require('../errors/exceptions.error')
 
 const MentorController = () => {
-  const createMentor = catchAsync(async (req, res, next) => {
-    const mentor = await Mentor.create(req.body)
+  const createMentor = catchAsync(async (req) => {
 
-    res.status(constants.httpStatus.created).json({
+    const image = req.files && req.files.image && req.files.image || null
+    if(req.files && !image) throw new UnprocessableRequestException('mentor image not provided in "image" attribute')
+
+    const mentor = new Mentor({...req.body, photo: image ? true : false})
+    
+    let taskArray = [
+      await mentor.save()
+    ]
+
+    image && taskArray.push(
+      new Promise((resolve, reject) => {
+        image.mv(path.join(__dirname, `../mentor-images/${mentor._id}.png`), (err) => {
+          if(err) reject(new FileUploadFailedException())
+          resolve()
+        })
+      })
+    )
+
+    const [ savedMentor ] = await Promise.all(taskArray)
+
+    return resFormatter({
       status: constants.result.success,
       data: {
-        mentor,
-      },
-    })
+        mentor: savedMentor,
+      }
+    }, constants.httpStatus.created)
   })
 
-  const getMentors = catchAsync(async (req, res, next) => {
+  const getMentors = catchAsync(async () => {
     const mentors = await Mentor.find()
 
-    res.status(constants.httpStatus.ok).json({
+    return resFormatter({
       status: constants.result.success,
       data: {
         mentors,
-      },
+      }
     })
   })
 
-  const getMentor = catchAsync(async (req, res, next) => {
+  const getMentor = catchAsync(async (req) => {
     const mentor = await Mentor.findById(req.params.mentorId)
 
-    if (!mentor) {
-      return next(NotFoundError('No mentor with this ID'))
-    }
+    if(!mentor) throw new RecordWithIdNotFoundException()
 
-    res.status(constants.httpStatus.ok).json({
+    return resFormatter({
       status: constants.result.success,
       data: {
-        mentor,
-      },
+        mentor
+      }
     })
   })
 
-  const updateMentor = catchAsync(async (req, res, next) => {
+  const updateMentor = catchAsync(async (req) => {
     const mentor = await Mentor.findByIdAndUpdate(
       req.params.mentorId,
       req.body,
       { new: true }
     )
-    if (!mentor) {
-      return next(NotFoundError('No mentor with this ID'))
-    }
-    res.status(constants.httpStatus.ok).json({
+    if(!mentor) throw new RecordWithIdNotFoundException()
+
+    return resFormatter({
       status: constants.result.success,
       data: {
-        mentor,
-      },
+        mentor
+      }
     })
   })
 
-  const deleteMentor = catchAsync(async (req, res, next) => {
+  const deleteMentor = catchAsync(async (req) => {
     const mentor = await Mentor.findByIdAndRemove(req.params.mentorId)
+    if (!mentor) throw new RecordWithIdNotFoundException()
 
-    if (!mentor) {
-      return next(NotFoundError('No mentor with this ID'))
-    }
-    res.status(constants.httpStatus.noContent).json({
+    return resFormatter({
       status: constants.result.success,
       data: null
-    });
+    }, constants.httpStatus.noContent)
   })
 
-  return { createMentor, getMentors, getMentor, deleteMentor, updateMentor }
+  return { 
+    createMentor, 
+    getMentors, 
+    getMentor, 
+    deleteMentor, 
+    updateMentor
+  }
 }
 
 module.exports = MentorController

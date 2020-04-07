@@ -1,5 +1,5 @@
-const ErrorHandler = require('./ErrorHandler')
+// const ErrorHandler = require('./ErrorHandler')
 
-const globalErrorHandler = ErrorHandler()
+// const globalErrorHandler = ErrorHandler()
 
-module.exports = { globalErrorHandler }
+// module.exports = { globalErrorHandler }
