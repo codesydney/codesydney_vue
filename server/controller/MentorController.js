@@ -65,11 +65,9 @@ const MentorController = () => {
     if (!mentor) {
       return next(NotFoundError('No mentor with this ID'))
     }
-    res.status(constants.httpStatus.ok).json({
+    res.status(constants.httpStatus.noContent).json({
       status: constants.result.success,
-      data: {
-        mentor,
-      },
+      data: null
     });
   })
 
