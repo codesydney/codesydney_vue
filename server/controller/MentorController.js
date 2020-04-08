@@ -9,8 +9,12 @@ const MentorController = () => {
   const createMentor = catchAsync(async (req) => {
 
     const image = req.files && req.files.image && req.files.image || null
-    if(req.files && !image) throw new UnprocessableRequestException('mentor image not provided in "image" attribute')
+    const fileType = image ? image.mimetype.split('/')[0] : null
 
+    if(req.files && !image) throw new UnprocessableRequestException('mentor image not provided in "image" attribute')
+    if(image && (fileType !== 'image')) throw new UnprocessableRequestException('File is not acceptable, must be image')
+    
+    
     const mentor = new Mentor({...req.body, photo: image ? true : false})
     
     let taskArray = [
