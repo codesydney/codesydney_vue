@@ -1,6 +1,6 @@
 const catchAsync = require('../utils/catchAsync')
 const Mentor = require('../model/Mentor')
-const { NotFoundError } = require('../errors')
+const { NotFoundError, MalformattedIdError } = require('../errors')
 const constants = require('../constant')
 
 
@@ -28,35 +28,53 @@ const MentorController = () => {
   })
 
   const getMentor = catchAsync(async (req, res, next) => {
-    const mentor = await Mentor.findById(req.params.mentorId)
 
-    if (!mentor) {
-      return next(NotFoundError('No mentor with this ID'))
-    }
+    try{
+      const mentor = await Mentor.findById(req.params.mentorId)
 
-    res.status(constants.httpStatus.ok).json({
-      status: constants.result.success,
-      data: {
-        mentor,
-      },
-    })
+      if (!mentor) {
+        return next(NotFoundError('No mentor with this ID'))
+      }
+
+      res.status(constants.httpStatus.ok).json({
+        status: constants.result.success,
+        data: {
+          mentor,
+        },
+      })
+   }
+    catch{
+      return next(MalformattedIdError('Malformatted ID'))
+
+   }
+ 
+
+ 
   })
 
   const updateMentor = catchAsync(async (req, res, next) => {
-    const mentor = await Mentor.findByIdAndUpdate(
-      req.params.mentorId,
-      req.body,
-      { new: true }
-    )
-    if (!mentor) {
-      return next(NotFoundError('No mentor with this ID'))
+
+    try{
+      const mentor = await Mentor.findByIdAndUpdate(
+        req.params.mentorId,
+        req.body,
+        { new: true }
+      )
+      if (!mentor) {
+        return next(NotFoundError('No mentor with this ID'))
+      }
+      res.status(constants.httpStatus.ok).json({
+        status: constants.result.success,
+        data: {
+          mentor,
+        },
+      })
+
     }
-    res.status(constants.httpStatus.ok).json({
-      status: constants.result.success,
-      data: {
-        mentor,
-      },
-    })
+    catch{
+      return next(MalformattedIdError('Malformatted ID'))
+    }
+
   })
 
   const deleteMentor = catchAsync(async (req, res, next) => {
