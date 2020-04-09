@@ -8,6 +8,8 @@ const constants = {
     forbidden: 403,
     notFound: 404,
     internalServerError: 500,
+    conflict: 409,
+    unprocessableEntity: 422
   },
   result: {
     fail: 'FAIL',

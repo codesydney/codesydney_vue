@@ -1,19 +1,21 @@
+const {httpStatus} = require('../constant')
+
 class UnprocessableRequestException extends Error{
-    code=422
+    code=httpStatus.unprocessableEntity
     constructor(message = 'unprocessable request body'){
         super()
         this.message = message
     }
 }
 class FileUploadFailedException extends Error{
-    code=409
+    code=httpStatus.conflict
     constructor(message='file upload failed'){
         super()
         this.message = message
     }
 }
 class RecordWithIdNotFoundException extends Error{
-    code=404
+    code=httpStatus.notFound
     message='record with such id not found'
 }
 

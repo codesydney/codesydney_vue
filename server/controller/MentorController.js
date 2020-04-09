@@ -1,12 +1,12 @@
 const path = require('path')
-const catchAsync = require('../utils/catchAsync')
+const resHandler = require('../utils/resHandler')
 const Mentor = require('../model/Mentor')
 const constants = require('../constant')
 const {resFormatter} = require('../utils/resFormatter')
-const {UnprocessableRequestException, FileUploadFailedException, RecordWithIdNotFoundException} = require('../errors/exceptions.error')
+const {UnprocessableRequestException, FileUploadFailedException, RecordWithIdNotFoundException} = require('../errors')
 
 const MentorController = () => {
-  const createMentor = catchAsync(async (req) => {
+  const createMentor = resHandler(async (req) => {
 
     const image = req.files && req.files.image && req.files.image || null
     const fileType = image ? image.mimetype.split('/')[0] : null
@@ -14,9 +14,8 @@ const MentorController = () => {
     if(req.files && !image) throw new UnprocessableRequestException('mentor image not provided in "image" attribute')
     if(image && (fileType !== 'image')) throw new UnprocessableRequestException('File is not acceptable, must be image')
     
-    
     const mentor = new Mentor({...req.body, photo: image ? true : false})
-    
+ 
     let taskArray = [
       await mentor.save()
     ]
@@ -29,7 +28,7 @@ const MentorController = () => {
         })
       })
     )
-
+      
     const [ savedMentor ] = await Promise.all(taskArray)
 
     return resFormatter({
@@ -40,7 +39,7 @@ const MentorController = () => {
     }, constants.httpStatus.created)
   })
 
-  const getMentors = catchAsync(async () => {
+  const getMentors = resHandler(async () => {
     const mentors = await Mentor.find()
 
     return resFormatter({
@@ -51,7 +50,7 @@ const MentorController = () => {
     })
   })
 
-  const getMentor = catchAsync(async (req) => {
+  const getMentor = resHandler(async (req) => {
     const mentor = await Mentor.findById(req.params.mentorId)
 
     if(!mentor) throw new RecordWithIdNotFoundException()
@@ -64,7 +63,7 @@ const MentorController = () => {
     })
   })
 
-  const updateMentor = catchAsync(async (req) => {
+  const updateMentor = resHandler(async (req) => {
     const mentor = await Mentor.findByIdAndUpdate(
       req.params.mentorId,
       req.body,
@@ -80,7 +79,7 @@ const MentorController = () => {
     })
   })
 
-  const deleteMentor = catchAsync(async (req) => {
+  const deleteMentor = resHandler(async (req) => {
     const mentor = await Mentor.findByIdAndRemove(req.params.mentorId)
     if (!mentor) throw new RecordWithIdNotFoundException()
 

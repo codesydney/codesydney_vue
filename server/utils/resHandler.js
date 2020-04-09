@@ -1,6 +1,6 @@
-const {errorHandler} = require('../utils/errorHandler')
+const {errorHandler} = require('./errorHandler')
 
-const catchAsync = (fn) => {
+const resHandler = (fn) => {
   return async (req, res, next) => {
     try{
       const response = await fn(req, res, next)
@@ -12,4 +12,4 @@ const catchAsync = (fn) => {
   }
 }
 
-module.exports = catchAsync
+module.exports = resHandler
