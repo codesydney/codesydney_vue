@@ -1,4 +1,4 @@
-const { NotFoundError, PreconditionError,UnauthorizedError, ForbiddenError, MalformattedIdError } = require('../errors')
+const { NotFoundError, PreconditionError,UnauthorizedError, ForbiddenError, MalformattedIdError, UnprocessableError } = require('../errors')
 const constants = require('../constant')
 
 const ErrorHandler = () => (error, req, res, next) => {
@@ -19,6 +19,8 @@ const ErrorHandler = () => (error, req, res, next) => {
       return buildErrorItem(error, constants.httpStatus.forbidden)
     case MalformattedIdError:
       return buildErrorItem(error, constants.httpStatus.badRequest)
+    case UnprocessableError:
+      return buildErrorItem(error, constants.httpStatus.unprocessableEntity)
     default:
       return buildErrorItem(error, constants.httpStatus.internalServerError)
   }

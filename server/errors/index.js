@@ -8,5 +8,6 @@ const ForbiddenError = require('./ForbiddenError')
 
 const MalformattedIdError = require('./MalformattedIdError')
 
+const UnprocessableError = require('./UnprocessableError')
 
-module.exports = { NotFoundError, PreconditionError, UnauthorizedError, ForbiddenError, MalformattedIdError }
+module.exports = { NotFoundError, PreconditionError, UnauthorizedError, ForbiddenError, MalformattedIdError, UnprocessableError }
