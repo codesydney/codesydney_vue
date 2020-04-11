@@ -17,5 +17,5 @@ Prashanga
 Content-Disposition: form-data; name="image"; filename="1.png"
 Content-Type: image/png
 
-< ../mentor-images/1.png
+< ./1.png
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
