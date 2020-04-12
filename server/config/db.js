@@ -12,6 +12,7 @@ const Mongoose = () => {
       })
 
       const db = mongoose.connection
+      
       db.on('error', err => {
         console.error.bind(console, 'connection error:')
         return reject(err)

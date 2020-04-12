@@ -1,13 +1,11 @@
 const express = require('express')
 const { mentorController } = require('../controller')
-const paginateRes = require('../middleware/paginateRes')
-const Mentor = require('../model/Mentor')
 const router = express.Router()
 
 router
   .route('/')
   .post(mentorController.createMentor)
-  .get(paginateRes(Mentor),mentorController.getMentors)
+  .get(mentorController.getMentors)
 
 router
   .route('/:mentorId')

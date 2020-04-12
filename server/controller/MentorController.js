@@ -1,10 +1,9 @@
 const path = require('path')
 const catchAsync = require('../utils/catchAsync')
 const Mentor = require('../model/Mentor')
-const { NotFoundError, MalformattedIdError, UnprocessableError, ForbiddenError } = require('../errors')
+const { NotFoundError, MalformattedIdError, UnprocessableError, ForbiddenError, PreconditionError } = require('../errors')
 const constants = require('../constant')
 const {uploadS3} = require('../utils/uploadS3')
-
 
 
 const MentorController = () => {
@@ -38,11 +37,34 @@ const MentorController = () => {
   const getMentors = catchAsync(
     
     async (req, res, next) => {
+      const page = parseInt(req.query.page)
+      const limit = parseInt(req.query.limit)
+      const sort =  req.query.sort || 'fullName'
 
-      res.status(constants.httpStatus.ok).json({
-      status: constants.result.success,
-      data: res.paginatedResults,
-    })
+      if(!page || !limit) {
+        return next(PreconditionError('bad request'))
+      }
+
+      const options = {
+        page,
+        limit,
+        sort
+      }
+
+     Mentor.paginate({}, options, function(error, result) {
+        if(result){
+          res.status(constants.httpStatus.ok)
+          .json({
+            status: constants.result.success,
+            data: result
+          })
+        }
+        if(error){
+          next(error)
+        }
+      })
+
+     
 
   }
   )
