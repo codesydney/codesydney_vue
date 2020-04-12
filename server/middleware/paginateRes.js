@@ -17,26 +17,27 @@ const paginateRes = (model) => {
           return next(PreconditionError('query exceeds records'))
         }
     
-        const results = {
+        const result = {
             total: totalDocs
         }
     
         if (endIndex < totalDocs) {
-          results.next = {
+          result.next = {
             page: page + 1,
             limit: limit
           }
+          
         }
         
         if (startIndex > 0) {
-          results.previous = {
+          result.previous = {
             page: page - 1,
             limit: limit
           }
         }
         try {
-          results.results = await model.find().limit(limit).skip(startIndex).exec()
-          res.paginatedResults = results
+          result.results = await model.find().limit(limit).skip(startIndex).exec()
+          res.paginatedResults = result
           next()
         } catch (e) {
           return UnprocessableError(e.message)

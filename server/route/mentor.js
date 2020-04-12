@@ -1,6 +1,6 @@
 const express = require('express')
 const { mentorController } = require('../controller')
-const paginateRes = require('../utils/paginateRes')
+const paginateRes = require('../middleware/paginateRes')
 const Mentor = require('../model/Mentor')
 const router = express.Router()
 
