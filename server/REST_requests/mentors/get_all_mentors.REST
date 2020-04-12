@@ -1,1 +1,1 @@
-GET http://localhost:5000/api/v1/mentors
+GET http://localhost:5000/api/v1/mentors?page=1&limit=2&sort=-createdAt

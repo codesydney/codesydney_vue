@@ -1,7 +1,7 @@
 const path = require('path')
 const catchAsync = require('../utils/catchAsync')
 const Mentor = require('../model/Mentor')
-const { NotFoundError, MalformattedIdError, UnprocessableError, ForbiddenError } = require('../errors')
+const { NotFoundError, MalformattedIdError, UnprocessableError, ForbiddenError, PreconditionError } = require('../errors')
 const constants = require('../constant')
 const {uploadS3} = require('../utils/uploadS3')
 
@@ -34,16 +34,49 @@ const MentorController = () => {
     })
   })
 
-  const getMentors = catchAsync(async (req, res, next) => {
-    const mentors = await Mentor.find()
+  const getMentors = catchAsync(
+    
+    async (req, res, next) => {
+      const page = parseInt(req.query.page)
+      const limit = parseInt(req.query.limit)
+      const sort =  req.query.sort || 'fullName'
 
-    res.status(constants.httpStatus.ok).json({
-      status: constants.result.success,
-      data: {
-        mentors,
-      },
-    })
-  })
+      if(!page || !limit) {
+        const mentors = await Mentor.find({})
+        return res.status(constants.httpStatus.ok).json({
+          status: constants.result.success,
+          data: {
+            mentors,
+          },
+        })
+      }
+
+      const myCustomLabels = {
+        docs: 'mentors'
+      }
+
+      const options = {
+        page,
+        limit,
+        sort,
+        customLabels: myCustomLabels
+      }
+
+     Mentor.paginate({}, options, function(error, result) {
+        if(result){
+          
+          res.status(constants.httpStatus.ok)
+          .json({
+            status: constants.result.success,
+            data: result
+          })
+        }
+        if(error){
+          next(error)
+        }
+      })
+  }
+  )
 
   const getMentor = catchAsync(async (req, res, next) => {
 
@@ -64,10 +97,7 @@ const MentorController = () => {
     catch{
       return next(MalformattedIdError('Malformatted ID'))
 
-   }
- 
-
- 
+   } 
   })
 
   const updateMentor = catchAsync(async (req, res, next) => {

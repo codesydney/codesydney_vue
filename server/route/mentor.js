@@ -1,6 +1,5 @@
 const express = require('express')
 const { mentorController } = require('../controller')
-
 const router = express.Router()
 
 router

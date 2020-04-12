@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const MentorSchema = new mongoose.Schema(
   {
@@ -28,5 +29,7 @@ MentorSchema.set('toJSON', {
     delete returnedObject.__v
   },
 })
+
+MentorSchema.plugin(mongoosePaginate)
 
 module.exports = mongoose.model('Mentor', MentorSchema)
