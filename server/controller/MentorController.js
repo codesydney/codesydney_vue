@@ -1,17 +1,35 @@
+const path = require('path')
 const catchAsync = require('../utils/catchAsync')
 const Mentor = require('../model/Mentor')
-const { NotFoundError, MalformattedIdError } = require('../errors')
+const { NotFoundError, MalformattedIdError, UnprocessableError, ForbiddenError } = require('../errors')
 const constants = require('../constant')
+const {uploadS3} = require('../utils/uploadS3')
 
 
 const MentorController = () => {
   const createMentor = catchAsync(async (req, res, next) => {
-    const mentor = await Mentor.create(req.body)
+
+    const image = req.files && req.files.image && req.files.image || null
+    const fileType = image ? image.mimetype.split('/')[0] : null
+
+    if(req.files && !image) next(UnprocessableError('mentor image not provided in "image" attribute'))
+    if(image && (fileType !== 'image')) next(UnprocessableError('File is not acceptable, must be image'))
+
+    const mentor = new Mentor({...req.body, photo: image ? true : false})
+ 
+    let taskArray = [
+      await mentor.save()
+    ]
+    image && taskArray.push(
+      await uploadS3(image.data, `${mentor._id}.png`, constants.s3.folder.MENTOR)
+    )
+
+    const [ savedMentor, s3Res ] = await Promise.all(taskArray)
 
     res.status(constants.httpStatus.created).json({
       status: constants.result.success,
       data: {
-        mentor,
+        mentor: savedMentor,
       },
     })
   })
