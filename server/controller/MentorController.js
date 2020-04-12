@@ -42,7 +42,13 @@ const MentorController = () => {
       const sort =  req.query.sort || 'fullName'
 
       if(!page || !limit) {
-        return next(PreconditionError('bad request'))
+        const mentors = await Mentor.find({})
+        return res.status(constants.httpStatus.ok).json({
+          status: constants.result.success,
+          data: {
+            mentors,
+          },
+        })
       }
 
       const options = {
