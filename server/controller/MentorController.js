@@ -38,13 +38,12 @@ const MentorController = () => {
   const getMentors = catchAsync(
     
     async (req, res, next) => {
-    // const mentors = await Mentor.find()
 
-    res.status(constants.httpStatus.ok).json({
+      res.status(constants.httpStatus.ok).json({
       status: constants.result.success,
       data: res.paginatedResults,
     })
-    //res.json()
+
   }
   )
 

@@ -1,12 +1,12 @@
-const { NotFoundError } = require('../errors')
+const { UnprocessableError, PreconditionError } = require('../errors')
 
 const paginateRes = (model) => {
     return async (req, res, next) => {
         const page = parseInt(req.query.page)
         const limit = parseInt(req.query.limit)
-        console.log(page)
-        if(!page ||!limit){
-          return next(NotFoundError('Bad Request'))
+        
+        if(!page || !limit){
+          return next(PreconditionError('bad request'))
         }
     
         const startIndex = (page - 1) * limit
@@ -14,7 +14,7 @@ const paginateRes = (model) => {
         const totalDocs = await model.countDocuments().exec()
 
         if(endIndex - limit > totalDocs ){
-          return next(NotFoundError('Query exceeds records'))
+          return next(PreconditionError('query exceeds records'))
         }
     
         const results = {
@@ -39,7 +39,7 @@ const paginateRes = (model) => {
           res.paginatedResults = results
           next()
         } catch (e) {
-          res.status(500).json({ message: e.message })
+          return UnprocessableError(e.message)
         }
       }
 }
