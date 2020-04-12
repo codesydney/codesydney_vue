@@ -4,6 +4,7 @@ const { NotFoundError, MalformattedIdError } = require('../errors')
 const constants = require('../constant')
 
 
+
 const MentorController = () => {
   const createMentor = catchAsync(async (req, res, next) => {
     const mentor = await Mentor.create(req.body)
@@ -16,16 +17,18 @@ const MentorController = () => {
     })
   })
 
-  const getMentors = catchAsync(async (req, res, next) => {
-    const mentors = await Mentor.find()
+  const getMentors = catchAsync(
+    
+    async (req, res, next) => {
+    // const mentors = await Mentor.find()
 
     res.status(constants.httpStatus.ok).json({
       status: constants.result.success,
-      data: {
-        mentors,
-      },
+      data: res.paginatedResults,
     })
-  })
+    //res.json()
+  }
+  )
 
   const getMentor = catchAsync(async (req, res, next) => {
 
@@ -46,10 +49,7 @@ const MentorController = () => {
     catch{
       return next(MalformattedIdError('Malformatted ID'))
 
-   }
- 
-
- 
+   } 
   })
 
   const updateMentor = catchAsync(async (req, res, next) => {
