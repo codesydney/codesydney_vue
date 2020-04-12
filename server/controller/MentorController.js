@@ -51,14 +51,20 @@ const MentorController = () => {
         })
       }
 
+      const myCustomLabels = {
+        docs: 'mentors'
+      }
+
       const options = {
         page,
         limit,
-        sort
+        sort,
+        customLabels: myCustomLabels
       }
 
      Mentor.paginate({}, options, function(error, result) {
         if(result){
+          
           res.status(constants.httpStatus.ok)
           .json({
             status: constants.result.success,
@@ -69,9 +75,6 @@ const MentorController = () => {
           next(error)
         }
       })
-
-     
-
   }
   )
 
