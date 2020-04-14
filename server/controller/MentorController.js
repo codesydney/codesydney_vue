@@ -16,7 +16,7 @@ const MentorController = () => {
     if(image && (fileType !== 'image')) next(UnprocessableError('File is not acceptable, must be image'))
 
     const mentor = new Mentor({...req.body, photo: image ? true : false})
- 
+
     let taskArray = [
       await mentor.save()
     ]
@@ -35,7 +35,7 @@ const MentorController = () => {
   })
 
   const getMentors = catchAsync(
-    
+
     async (req, res, next) => {
       const page = parseInt(req.query.page)
       const limit = parseInt(req.query.limit)
@@ -64,7 +64,7 @@ const MentorController = () => {
 
      Mentor.paginate({}, options, function(error, result) {
         if(result){
-          
+
           res.status(constants.httpStatus.ok)
           .json({
             status: constants.result.success,
@@ -94,10 +94,9 @@ const MentorController = () => {
         },
       })
    }
-    catch{
+    catch(error) {
       return next(MalformattedIdError('Malformatted ID'))
-
-   } 
+   }
   })
 
   const updateMentor = catchAsync(async (req, res, next) => {
@@ -119,7 +118,7 @@ const MentorController = () => {
       })
 
     }
-    catch{
+    catch(error) {
       return next(MalformattedIdError('Malformatted ID'))
     }
 
