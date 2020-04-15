@@ -9,6 +9,7 @@ const constants = {
     notFound: 404,
     unprocessableEntity: 422,
     internalServerError: 500,
+    conflict: 409
   },
   result: {
     fail: 'FAIL',

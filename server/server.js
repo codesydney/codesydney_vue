@@ -3,7 +3,6 @@ const morgan = require('morgan')
 const cors = require('cors')
 const expressFileUpload = require('express-fileupload')
 const Mongoose = require('./config/db')
-const { globalErrorHandler } = require('./middleware')
 const { PreconditionError } = require('./errors')
 
 const app = express()
@@ -20,8 +19,6 @@ app.use('/api/v1/mentors', require('./route/mentor'))
 app.all('*', (req, res, next) => {
   next(new PreconditionError(`Can't find ${req.originalUrl} on this server!`))
 })
-
-app.use(globalErrorHandler)
 
 const PORT = process.env.PORT || 5000
 
