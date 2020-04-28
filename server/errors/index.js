@@ -1,13 +1,17 @@
-const NotFoundError = require('./NotFoundError')
+const {
+    FileUploadFailedException,
+    ForbiddenErrorException,
+    MalformattedErrorException,
+    RecordWithIdNotFoundException,
+    UnauthorizedErrorException,
+    UnprocessableRequestException
+} = require('./exceptions.error')
 
-const PreconditionError = require('./PreconditionError')
-
-const UnauthorizedError = require('./UnauthorizedError')
-
-const ForbiddenError = require('./ForbiddenError')
-
-const MalformattedIdError = require('./MalformattedIdError')
-
-const UnprocessableError = require('./UnprocessableError')
-
-module.exports = { NotFoundError, PreconditionError, UnauthorizedError, ForbiddenError, MalformattedIdError, UnprocessableError }
+module.exports = {
+    FileUploadFailedException,
+    ForbiddenErrorException,
+    MalformattedErrorException,
+    RecordWithIdNotFoundException,
+    UnauthorizedErrorException,
+    UnprocessableRequestException
+}
