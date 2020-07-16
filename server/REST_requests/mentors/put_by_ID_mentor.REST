@@ -1,9 +1,0 @@
-PUT http://localhost:5000/api/v1/mentors/5e897ff92cee192a14976ec3
-content-type: application/json
-
-{  
-    "photo": "true",
-    "fullName": "Prashanga",
-    "title": "Prashanga's test 2",
-    "description": "I love testing"
-} 
