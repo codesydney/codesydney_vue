@@ -20,6 +20,7 @@
 2. Open your terminal and enter...
   - `git config --global user.name "Your name here"`
   - `git config --global user.email "your_email@example.com`
+  
   *Replace the quotation sections with your name and email address respectively, without the quotes.*
   *Ensure that the email address is the same as your Github account.*
 2. Navigate to your desired workspace in the terminal.
