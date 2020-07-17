@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- Headline -->
-    <h1>Hello World!</h1>
-    <!-- Member Previews -->
+    <h1>Contact</h1>
+    <!-- Calendly Widget -->
+    <!-- Email Form -->
   </div>
 </template>
 
