@@ -13,6 +13,7 @@
       />
       <h2>{{ member.name }}</h2>
       <h4>{{ member.title }}</h4>
+      <!-- The badges are currently use code sydney icon, should be replaced when badge components ready -->
       <div>
         <img
           src="../../../_docs/assets/favicon.png"
