@@ -17,26 +17,26 @@
         <img
           src="../../../_docs/assets/favicon.png"
           :alt="member.name"
-          :title="member.name"
+          title="badgeTitle"
           class="memberPreview__member-badge"
         />
         <img
           src="../../../_docs/assets/favicon.png"
           :alt="member.name"
-          :title="member.name"
+          title="badgeTitle"
           class="memberPreview__member-badge"
         />
         <img
           src="../../../_docs/assets/favicon.png"
           :alt="member.name"
-          :title="member.name"
+          title="badgeTitle"
           class="memberPreview__member-badge"
         />
       </div>
       <a :href="member.socialUrl.LinkedIn" target="_blank">
         <font-awesome-icon
           :icon="['fab', 'linkedin']"
-          :title="member.name"
+          title="LinkedIn"
           class="memberPreview__member-socialLink"
         />
       </a>
