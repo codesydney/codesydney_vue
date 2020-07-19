@@ -3,12 +3,17 @@
     <!-- Headline -->
     <h1>Hello World!</h1>
     <!-- Member Previews -->
+    <MemberPreview />
   </div>
 </template>
 
 <script>
-export default {};
+import MemberPreview from '@/components/MemberPreview.vue';
+export default {
+  components: {
+    MemberPreview
+  }
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
