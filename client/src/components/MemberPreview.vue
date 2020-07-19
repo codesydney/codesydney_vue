@@ -1,6 +1,10 @@
 <template>
   <div class="memberPreview">
-    <div v-for="member in members" :key="member.id" class="memberPreview__member">
+    <div
+      v-for="member in members"
+      :key="member.id"
+      class="memberPreview__member"
+    >
       <img
         :src="member.imageUrl"
         :alt="member.name"
@@ -30,9 +34,8 @@
         />
       </div>
       <a :href="member.socialUrl.LinkedIn" target="_blank">
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
+        <font-awesome-icon
+          :icon="['fab', 'linkedin']"
           :title="member.name"
           class="memberPreview__member-socialLink"
         />
@@ -85,6 +88,9 @@ export default {
       &:active {
         transform: scale(1.2);
       }
+    }
+    &-socialLink {
+      color: #0073b1;
     }
   }
 }
