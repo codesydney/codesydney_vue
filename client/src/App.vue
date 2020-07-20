@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
+      <div class="navBar-icon">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
@@ -9,6 +12,8 @@
 </template>
 
 <style>
+@import url("https://use.fontawesome.com/releases/v5.9.0/css/all.css"); 
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
