@@ -2,12 +2,8 @@
   <div id="navBar-mobile">
     <!-- placeholder Nav links -->
     <ul>
-      <li>HomeM</li>
-      <li>AwardsM</li>
-      <li>testmonialsM</li>
-      <li>NewsletterM</li>
-      <li>CampersM</li>
-      <li>ContactM</li>
+      <li>Home</li>
+      <li>Contact</li>
     </ul>
   </div>
 </template>
@@ -27,7 +23,6 @@ export default {};
   list-style: none;
   width: 200px;
   padding-left: 32px;
-  
 }
 #navBar-mobile li {
   color: #fff;

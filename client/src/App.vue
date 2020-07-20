@@ -22,6 +22,7 @@
       </div>
       <router-view />
     </div>
+  </div>
 </template>
 
 <script>
@@ -89,7 +90,7 @@ export default {
 }
 
 .open {
-  transform: translateX(300px);
+  transform: translateX(240px);
 }
 </style>
 
