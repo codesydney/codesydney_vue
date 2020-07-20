@@ -1,5 +1,13 @@
+/**
+ * DELETE this comment
+ * -------------------
+ * Hamburger button and banner/header go in this file.
+ */
+
 <template>
   <div id="app">
+    <!-- Banner/Header -->
+    <!-- Hamburger -->
     <NavBarMobile />
     <div class="nav-content" v-bind:class="{ open: showNavBar }">
       <div id="nav">
@@ -14,7 +22,6 @@
       </div>
       <router-view />
     </div>
-  </div>
 </template>
 
 <script>
@@ -85,3 +92,4 @@ export default {
   transform: translateX(300px);
 }
 </style>
+
