@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <div id="navBar-icon" v-if="mobileView" >
-        <i class="fa fa-bars" aria-hidden="true"></i>
+    <div>
+      <div id="nav">
+        <div id="navBar-icon" v-if="mobileView">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <NavLink v-if="!mobileView" />
       </div>
-      <NavLink v-if="!mobileView" />
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -16,18 +18,26 @@ import NavLink from './components/NavLink.vue';
 export default {
   data() {
     return {
-      showNavBar: false,
-      mobileView: true
+      mobileView: false,
+      showNavBar: false
     };
+  },
+  methods: {
+    toggleMobileView() {
+      this.mobileView = window.innerWidth <= 990;
+    }
   },
   components: {
     NavLink
+  },
+  created() {
+    this.toggleMobileView();
   }
-}
+};
 </script>
 
 <style>
-@import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css'); 
+@import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css');
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -50,5 +60,4 @@ export default {
 #navBar-icon i {
   font-size: 2rem;
 }
-
 </style>
