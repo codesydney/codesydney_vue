@@ -1,6 +1,6 @@
 <template>
-  <div>
-   <!-- placeholder Nav links -->
+  <div id="navBar-mobile">
+    <!-- placeholder Nav links -->
     <ul>
       <li>HomeM</li>
       <li>AwardsM</li>
@@ -13,11 +13,30 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+#navBar-mobile {
+  text-align: left;
+  background-color: lightblue;
+  border-radius: 30px;
+}
 
+#navBar-mobile ul {
+  list-style: none;
+  width: 200px;
+  padding-left: 32px;
+  
+}
+#navBar-mobile li {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+#navBar-mobile :hover {
+  color: #111;
+}
 </style>

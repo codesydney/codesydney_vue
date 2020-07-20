@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <div>
+    <NavBarMobile />
+    <div class="nav-content" v-bind:class="{ open: showNavBar }">
       <div id="nav">
-        <div id="navBar-icon" v-if="mobileView">
-          <i class="fa fa-bars" aria-hidden="true"></i>
+        <div
+          id="navBar-icon"
+          v-if="mobileView"
+          @click="showNavBar = !showNavBar"
+        >
+          <i class="fa fa-bars"></i>
         </div>
         <NavLink v-if="!mobileView" />
       </div>
@@ -14,6 +19,7 @@
 
 <script>
 import NavLink from './components/NavLink.vue';
+import NavBarMobile from './components/NavBarMobile.vue';
 
 export default {
   data() {
@@ -28,7 +34,8 @@ export default {
     }
   },
   components: {
-    NavLink
+    NavLink,
+    NavBarMobile
   },
   created() {
     this.toggleMobileView();
@@ -52,6 +59,7 @@ export default {
 }
 
 #navBar-icon {
+  text-align: left;
   cursor: pointer;
   padding: 10px 10px 20px;
   margin-right: 10px;
@@ -59,5 +67,21 @@ export default {
 
 #navBar-icon i {
   font-size: 2rem;
+}
+
+.nav-content {
+  position: absolute;
+  top: 10px;
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: calc(100vh - 60px);
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+}
+
+.open {
+  transform: translateX(300px);
 }
 </style>
