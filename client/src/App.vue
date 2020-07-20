@@ -1,18 +1,33 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="navBar-icon">
+      <div id="navBar-icon" v-if="mobileView" >
         <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <NavLink v-if="!mobileView" />
     </div>
     <router-view />
   </div>
 </template>
 
+<script>
+import NavLink from './components/NavLink.vue';
+
+export default {
+  data() {
+    return {
+      showNavBar: false,
+      mobileView: true
+    };
+  },
+  components: {
+    NavLink
+  }
+}
+</script>
+
 <style>
-@import url("https://use.fontawesome.com/releases/v5.9.0/css/all.css"); 
+@import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css'); 
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,12 +41,14 @@
   padding: 30px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#navBar-icon {
+  cursor: pointer;
+  padding: 10px 10px 20px;
+  margin-right: 10px;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#navBar-icon i {
+  font-size: 2rem;
 }
+
 </style>

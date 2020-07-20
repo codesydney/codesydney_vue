@@ -2,12 +2,12 @@
   <div>
    <!-- placeholder Nav links -->
     <ul>
-      <li>Home</li>
-      <li>Awards</li>
-      <li>testmonials</li>
-      <li>Newsletter</li>
-      <li>Campers</li>
-      <li>Contact</li>
+      <li>HomeM</li>
+      <li>AwardsM</li>
+      <li>testmonialsM</li>
+      <li>NewsletterM</li>
+      <li>CampersM</li>
+      <li>ContactM</li>
     </ul>
   </div>
 </template>
