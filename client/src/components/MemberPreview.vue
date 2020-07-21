@@ -44,6 +44,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import members from '@/services/members';
 
@@ -85,7 +86,7 @@ export default {
     }
   }
   @if $breakpoint == big-desktop {
-    @media (min-width: 1500px) {
+    @media (min-width: 1800px) {
       @content;
     }
   }
@@ -94,28 +95,30 @@ export default {
   display: grid;
   margin: 0 10vw;
   grid-template-columns: 1fr 1fr 1fr;
-  @include respond(tab-land) {
-    font-size: 80%;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  @include respond(tab-port) {
-    font-size: 70%;
-    grid-template-columns: 1fr 1fr;
-  }
-  @include respond(phone) {
-    font-size: 60%;
-    grid-template-columns: 1fr;
-  }
+
   @include respond(big-desktop) {
     font-size: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  @include respond(tab-land) {
+    font-size: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include respond(tab-port) {
+    font-size: 80%;
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(phone) {
+    font-size: 80%;
+    grid-template-columns: 1fr;
+  }
+  
   &__member {
-    margin: 20px;
-    padding: 20px 10% 20px 15%;
+    margin: 20px auto;
+    padding: 20px;
     &-portrait {
-      height: 200px;
       clip-path: circle();
+      height: 200px;
       @include respond(tab-land) {
         height: 160px;
       }
