@@ -29,6 +29,48 @@
           title="badgeTitle"
           class="memberPreview__member-badge"
         />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
+        <img
+          src="../../../_docs/assets/favicon.png"
+          :alt="member.name"
+          title="badgeTitle"
+          class="memberPreview__member-badge"
+        />
       </div>
       <div class="memberPreview__member-socialLinks">
         <a :href="member.socialUrl.LinkedIn" target="_blank">
@@ -99,18 +141,18 @@ export default {
 .memberPreview {
   display: grid;
   margin: 0 10vw;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   @include respond(big-desktop) {
     font-size: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
   @include respond(tab-land) {
     font-size: 85%;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
   @include respond(tab-port) {
     font-size: 70%;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   @include respond(phone) {
     font-size: 55%;
@@ -132,9 +174,23 @@ export default {
         height: 100px;
       }
     }
+    &-badges,
+    &-socialLinks {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      @include respond(tab-land) {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      @include respond(tab-port) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      @include respond(phone) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
     &-badge,
     &-socialLink {
-      margin: 5px;
+      margin: 5px 15px 5px 0;
       transform: scale(1.2);
       @include respond(tab-port) {
         transform: scale(1);
