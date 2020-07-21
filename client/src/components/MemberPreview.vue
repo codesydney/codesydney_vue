@@ -1,10 +1,6 @@
 <template>
   <div class="memberPreview">
-    <div
-      v-for="member in members"
-      :key="member.id"
-      class="memberPreview__member"
-    >
+    <div v-for="member in members" :key="member.id" class="memberPreview__member">
       <img
         :src="member.imageUrl"
         :alt="member.name"
@@ -14,7 +10,7 @@
       <h2>{{ member.name }}</h2>
       <h4>{{ member.title }}</h4>
       <!-- The badges are currently use code sydney icon, should be replaced when badge components ready -->
-      <div>
+      <div class="memberPreview__member-badges">
         <img
           src="../../../_docs/assets/favicon.png"
           :alt="member.name"
@@ -95,24 +91,22 @@ export default {
   display: grid;
   margin: 0 10vw;
   grid-template-columns: 1fr 1fr 1fr;
-
   @include respond(big-desktop) {
     font-size: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   @include respond(tab-land) {
-    font-size: 90%;
+    font-size: 85%;
     grid-template-columns: 1fr 1fr 1fr;
   }
   @include respond(tab-port) {
-    font-size: 80%;
+    font-size: 70%;
     grid-template-columns: 1fr 1fr;
   }
   @include respond(phone) {
-    font-size: 80%;
+    font-size: 55%;
     grid-template-columns: 1fr;
   }
-  
   &__member {
     margin: 20px auto;
     padding: 20px;
@@ -133,12 +127,30 @@ export default {
     &-socialLink {
       margin: 5px;
       transform: scale(1.2);
+      @include respond(tab-port) {
+        transform: scale(1);
+      }
+      @include respond(phone) {
+        transform: scale(1);
+      }
       &:hover,
       &:focus {
         transform: scale(1.4);
+        @include respond(tab-port) {
+          transform: scale(1.2);
+        }
+        @include respond(phone) {
+          transform: scale(1.2);
+        }
       }
       &:active {
         transform: scale(1.2);
+        @include respond(tab-port) {
+          transform: scale(1);
+        }
+        @include respond(phone) {
+          transform: scale(1);
+        }
       }
     }
     &-socialLink {
