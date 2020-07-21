@@ -30,13 +30,22 @@
           class="memberPreview__member-badge"
         />
       </div>
-      <a :href="member.socialUrl.LinkedIn" target="_blank">
-        <font-awesome-icon
-          :icon="['fab', 'linkedin']"
-          title="LinkedIn"
-          class="memberPreview__member-socialLink"
-        />
-      </a>
+      <div class="memberPreview__member-socialLinks">
+        <a :href="member.socialUrl.LinkedIn" target="_blank">
+          <font-awesome-icon
+            :icon="['fab', 'linkedin']"
+            title="LinkedIn"
+            class="memberPreview__member-socialLink"
+          />
+        </a>
+        <a :href="member.socialUrl.LinkedIn" target="_blank">
+          <font-awesome-icon
+            :icon="['fab', 'linkedin']"
+            title="LinkedIn"
+            class="memberPreview__member-socialLink"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -154,6 +163,8 @@ export default {
       }
     }
     &-socialLink {
+      height: 16px;
+      width: 16px;
       color: #0073b1;
     }
   }
