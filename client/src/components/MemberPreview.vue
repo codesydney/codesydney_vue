@@ -46,6 +46,7 @@
 </template>
 <script>
 import members from '@/services/members';
+
 export default {
   name: 'MemberPreview',
   data() {
@@ -67,16 +68,63 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  }
+}
 .memberPreview {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 10vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  @include respond(tab-land) {
+    font-size: 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include respond(tab-port) {
+    font-size: 70%;
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(phone) {
+    font-size: 60%;
+    grid-template-columns: 1fr;
+  }
+  @include respond(big-desktop) {
+    font-size: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
   &__member {
     margin: 20px;
     padding: 20px 10% 20px 15%;
     &-portrait {
       height: 200px;
       clip-path: circle();
+      @include respond(tab-land) {
+        height: 160px;
+      }
+      @include respond(tab-port) {
+        height: 130px;
+      }
+      @include respond(phone) {
+        height: 100px;
+      }
     }
     &-badge,
     &-socialLink {
