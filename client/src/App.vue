@@ -1,3 +1,4 @@
+// eslint-disable-next-line prettier/prettier
 /**
  * DELETE this comment
  * -------------------
@@ -9,16 +10,22 @@
     <!-- Banner/Header -->
     <!-- Hamburger -->
     <NavBarMobile />
-    <div class="nav-content" v-bind:class="{ open: showNavBar }">
+    <div class="nav-content" v-bind:class="{ visible: showNavBar }">
       <div id="nav">
         <div
           id="navBar-icon"
-          v-if="mobileView"
+          v-if="!showNavBar"
           @click="showNavBar = !showNavBar"
         >
           <i class="fa fa-bars"></i>
         </div>
-        <NavLink v-if="!mobileView" />
+        <div
+          id="navBar-icon"
+          v-if="showNavBar"
+          @click="showNavBar = !showNavBar"
+        >
+          <i class="fa fa-times"></i>
+        </div>
       </div>
       <router-view />
     </div>
@@ -26,27 +33,24 @@
 </template>
 
 <script>
-import NavLink from './components/NavLink.vue';
 import NavBarMobile from './components/NavBarMobile.vue';
 
 export default {
   data() {
     return {
-      mobileView: false,
       showNavBar: false
     };
   },
   methods: {
-    toggleMobileView() {
-      this.mobileView = window.innerWidth <= 990;
+    toggleShowNavBar() {
+      console.log('hello Nav');
     }
   },
   components: {
-    NavLink,
     NavBarMobile
   },
   created() {
-    this.toggleMobileView();
+    this.toggleShowNavBar();
   }
 };
 </script>
@@ -93,4 +97,3 @@ export default {
   transform: translateX(240px);
 }
 </style>
-
