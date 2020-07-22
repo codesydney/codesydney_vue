@@ -16,7 +16,11 @@ export default {};
 #navBar-mobile {
   text-align: left;
   background-color: lightblue;
-  border-radius: 30px;
+position: relative;
+width: 100%;
+text-align: center;
+margin-top: 30px;
+
 }
 
 #navBar-mobile ul {
