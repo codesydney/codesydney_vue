@@ -9,8 +9,8 @@
   <div id="app">
     <!-- Banner/Header -->
     <!-- Hamburger -->
-    <NavBarMobile />
-    <div class="nav-content" v-bind:class="{ visible: showNavBar }">
+    <NavBarMobile :class="{ visible: showNavBar }"/>
+    <div class="nav-content" >
       <div id="nav">
         <div
           id="navBar-icon"
@@ -21,7 +21,7 @@
         </div>
         <div
           id="navBar-icon"
-          v-if="showNavBar"
+          v-if="!showNavBar"
           @click="showNavBar = !showNavBar"
         >
           <i class="fa fa-times"></i>
