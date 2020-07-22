@@ -82,8 +82,8 @@
         </a>
         <a :href="member.socialUrl.LinkedIn" target="_blank">
           <font-awesome-icon
-            :icon="['fab', 'linkedin']"
-            title="LinkedIn"
+            :icon="['fab', 'facebook-square']"
+            title="Facebook"
             class="memberPreview__member-socialLink"
           />
         </a>
@@ -185,36 +185,36 @@ export default {
         grid-template-columns: repeat(4, 1fr);
       }
       @include respond(phone) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     &-badge,
     &-socialLink {
-      margin: 5px 15px 5px 0;
-      transform: scale(1.2);
+      margin: 5px 10px 5px 0;
+      transform: scale(1.4);
       @include respond(tab-port) {
-        transform: scale(1);
+        transform: scale(1.2);
       }
       @include respond(phone) {
-        transform: scale(1);
+        transform: scale(1.2);
       }
       &:hover,
       &:focus {
+        transform: scale(1.6);
+        @include respond(tab-port) {
+          transform: scale(1.4);
+        }
+        @include respond(phone) {
+          transform: scale(1.4);
+        }
+      }
+      &:active {
         transform: scale(1.4);
         @include respond(tab-port) {
           transform: scale(1.2);
         }
         @include respond(phone) {
           transform: scale(1.2);
-        }
-      }
-      &:active {
-        transform: scale(1.2);
-        @include respond(tab-port) {
-          transform: scale(1);
-        }
-        @include respond(phone) {
-          transform: scale(1);
         }
       }
     }
