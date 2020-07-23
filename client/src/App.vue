@@ -9,21 +9,13 @@
   <div id="app">
     <!-- Banner/Header -->
     <!-- Hamburger -->
-    <NavBarMobile :class="{ visible: showNavBar }"/>
-    <div class="nav-content" >
+    <NavBarMobile :class="{ open: showNavBar }" />
+    <div class="nav-content">
       <div id="nav">
-        <div
-          id="navBar-icon"
-          v-if="!showNavBar"
-          @click="showNavBar = !showNavBar"
-        >
+        <div id="navBar-icon" v-if="!showNavBar" @click="showNavBar = !showNavBar">
           <i class="fa fa-bars"></i>
         </div>
-        <div
-          id="navBar-icon"
-          v-if="!showNavBar"
-          @click="showNavBar = !showNavBar"
-        >
+        <div id="navBar-icon" v-if="showNavBar" @click="showNavBar = !showNavBar">
           <i class="fa fa-times"></i>
         </div>
       </div>
