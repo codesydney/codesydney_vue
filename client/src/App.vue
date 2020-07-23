@@ -1,91 +1,113 @@
-// eslint-disable-next-line prettier/prettier
-/**
- * DELETE this comment
- * -------------------
- * Hamburger button and banner/header go in this file.
- */
-
 <template>
   <div id="app">
     <!-- Banner/Header -->
     <!-- Hamburger -->
-    <NavBarMobile :class="{ open: showNavBar }" />
-    <div class="nav-content">
-      <div id="nav">
-        <div id="navBar-icon" v-if="!showNavBar" @click="showNavBar = !showNavBar">
-          <i class="fa fa-bars"></i>
-        </div>
-        <div id="navBar-icon" v-if="showNavBar" @click="showNavBar = !showNavBar">
-          <i class="fa fa-times"></i>
-        </div>
+    <!-- <div id="myNav" :class="{ navbar_open: showNavbar }" class="navbar"> -->
+    <div id="myNav" :class="{ navbar_open: showNavbar, navbar: !showNavbar }">
+      <div class="closebtn" @click="showNavbar = !showNavbar">
+        <i class="fa fa-times"></i>
       </div>
-      <router-view />
+      <div class="navbar-content">
+        <a>Home</a>
+        <a>Contact</a>
+      </div>
     </div>
+    <div class="openbtn">
+      <i class="fa fa-bars" @click="showNavbar = !showNavbar"></i>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-import NavBarMobile from './components/NavBarMobile.vue';
-
 export default {
   data() {
     return {
-      showNavBar: false
+      showNavbar: false
     };
   },
-  methods: {
-    toggleShowNavBar() {
-      console.log('hello Nav');
-    }
-  },
-  components: {
-    NavBarMobile
-  },
-  created() {
-    this.toggleShowNavBar();
-  }
+  methods: {}
 };
 </script>
 
 <style>
 @import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css');
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.navbar_open {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+  background-color: #2b4c72;
+}
+
+.navbar {
+  width: 100%;
+  height: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+  background-color: #2b4c72;
+}
+
+.navbar-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
   text-align: center;
-  color: #2c3e50;
+  margin-top: 30px;
 }
 
-#nav {
-  padding: 30px;
+.navbar a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-#navBar-icon {
-  text-align: left;
-  cursor: pointer;
-  padding: 10px 10px 20px;
-  margin-right: 10px;
+.navbar a:hover,
+.navbar a:focus {
+  color: #f1f1f1;
 }
 
-#navBar-icon i {
-  font-size: 2rem;
-}
-
-.nav-content {
+.closebtn {
   position: absolute;
-  top: 10px;
-  padding: 20px;
-  width: calc(100% - 40px);
-  height: calc(100vh - 60px);
-  background-color: #fff;
-  border-radius: 30px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+  top: 20px;
+  left: 45px;
+  font-size: 60px;
+  color: white;
+  cursor: pointer;
 }
 
-.open {
-  transform: translateX(240px);
+.openbtn i {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-height: 450px) {
+  .navbar {
+    overflow-y: auto;
+  }
+  .navbar a {
+    font-size: 20px;
+  }
+  .navbar .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
 </style>

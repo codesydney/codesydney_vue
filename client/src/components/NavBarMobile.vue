@@ -18,6 +18,7 @@ export default {};
   background-color: lightblue;
   position: relative;
   width: 100%;
+  height: 0%;
   text-align: center;
   margin-top: 30px;
 }
