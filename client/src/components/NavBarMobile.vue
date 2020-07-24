@@ -1,5 +1,5 @@
 <template>
-  <div id="navBar-mobile">
+  <div id="navbar-context">
     <!-- placeholder Nav links -->
     <ul>
       <li>Home</li>
@@ -13,29 +13,5 @@ export default {};
 </script>
 
 <style scoped>
-#navBar-mobile {
-  text-align: left;
-  background-color: lightblue;
-  position: relative;
-  width: 100%;
-  height: 0%;
-  text-align: center;
-  margin-top: 30px;
-}
 
-#navBar-mobile ul {
-  list-style: none;
-  width: 200px;
-  padding-left: 32px;
-}
-#navBar-mobile li {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-#navBar-mobile :hover {
-  color: #111;
-}
 </style>

@@ -105,19 +105,23 @@ export default {
 .openbtn i {
   top: 20px;
   left: 45px;
+  width: 30px;
+  height: 25px;
   font-size: 2rem;
   cursor: pointer;
 }
 
 @media screen and (max-height: 450px) {
-  .navbar {
+  .navbar_open {
     overflow-y: auto;
   }
-  .navbar a {
+  .navbar_open a {
     font-size: 20px;
   }
-  .navbar .closebtn {
+  .navbar_open .closebtn {
     font-size: 40px;
+    width: 30px;
+    height: 25px;
     top: 15px;
     right: 35px;
   }
