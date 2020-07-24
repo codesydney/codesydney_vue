@@ -4,9 +4,13 @@ import router from './router';
 import store from './store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faLinkedin,faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import {
+  faLinkedin,
+  faFacebookSquare
+} from '@fortawesome/free-brands-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faLinkedin, faFacebookSquare);
+library.add(faLinkedin, faFacebookSquare, faTimes, faBars);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

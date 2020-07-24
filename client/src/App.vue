@@ -3,7 +3,7 @@
     <!-- Banner/Header -->
     <div id="myNav" :class="{ navbar_open: showNavbar, navbar: !showNavbar }">
       <div class="closebtn" @click="showNavbar = !showNavbar">
-        <font-awesome-icon :icon="['fab', 'linkedin']" class="navbar__times" />
+        <font-awesome-icon :icon="['fa', 'times']" class="navbar__times" />
       </div>
       <div class="navbar-content">
         <ul>
@@ -18,8 +18,8 @@
     </div>
     <div class="openbtn">
       <font-awesome-icon
-        :icon="['fab', 'linkedin']"
-        class="navbar__hamburger"
+        :icon="['fa', 'bars']"
+        class="navbar__bars"
         @click="showNavbar = !showNavbar"
       />
     </div>
@@ -36,7 +36,6 @@ export default {
   }
 };
 </script>
-
 
 <style>
 .navbar {
