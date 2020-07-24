@@ -12,7 +12,8 @@
     - Vetur
     - ESLint
     - Prettier
-1. Navigate to the client directory in your terminal and run `npm run serve`.
+1. <b>Open one terminal</b>, navigate to the client directory `cd client` in your terminal and run `npm install` and  `npm run serve`.
+1. <b>Open aonther terminal</b>, `cd client`, and run `json-server --watch membersDb.json`
 1. Open your browser and navigate to `localhost:8080/`.
 
 ## Git setup:
