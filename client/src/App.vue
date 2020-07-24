@@ -3,7 +3,7 @@
     <!-- Banner/Header -->
     <div id="myNav" :class="{ navbar_open: showNavbar, navbar: !showNavbar }">
       <div class="closebtn" @click="showNavbar = !showNavbar">
-        <i class="fa fa-times"></i>
+        <font-awesome-icon :icon="['fab', 'linkedin']" class="navbar__times" />
       </div>
       <div class="navbar-content">
         <ul>
@@ -17,7 +17,11 @@
       </div>
     </div>
     <div class="openbtn">
-      <i class="fa fa-bars" @click="showNavbar = !showNavbar"></i>
+      <font-awesome-icon
+        :icon="['fab', 'linkedin']"
+        class="navbar__hamburger"
+        @click="showNavbar = !showNavbar"
+      />
     </div>
     <router-view />
   </div>
@@ -33,9 +37,8 @@ export default {
 };
 </script>
 
-<style>
-@import url('https://use.fontawesome.com/releases/v5.9.0/css/all.css');
 
+<style>
 .navbar {
   height: 0%;
   width: 100%;
@@ -102,7 +105,7 @@ export default {
   cursor: pointer;
 }
 
-.openbtn i {
+.openbtn {
   top: 20px;
   left: 45px;
   width: 30px;
