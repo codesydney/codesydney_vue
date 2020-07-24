@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "imageUrl": "https://www.code.sydney/static/img/engramar.jpg",
+      "name": "Engramar Bollas",
+      "title": "Director",
+      "socialUrl": {
+        "LinkedIn": "https://www.linkedin.com/in/engramarbollas/"
+      },
+      "description": "Engramar's raison d'etre is to serve. A believer of servant leadership. He is passionate in providing service excellence to customers and ensuring people, culture, processes and technology support the same initiative. Engramar has worked in the IT industry for over 24 years. Having worked in Asia, the Middle East and Australia, Engramar has deep expertise in all aspects of software development lifecycle including business requirements analysis, systems design and development, product testing, release management, end-user training, pre-sales and post-implementation support. Engramar is working for GBG (Mastersoft Group) as their Head of Customer Support and Testing team. Engramar is also the current Director of Code.Sydney, an organisation which helps beginner programmers and novice data analysts showcase their newfound skills. Engramar has obtained a degree in Mathematics major in Computer Science from the Pontifical and Royal University of Santo Tomas in Manila."
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://www.code.sydney/static/img/tony.png",
+      "name": "Tony Johnson",
+      "title": "Head of JavaScript CoE",
+      "socialUrl": {
+        "LinkedIn": "https://www.linkedin.com/in/tony-johnson-53995413/"
+      },
+      "description": "Despite having a Degree in Prehistory and Archaeology, Tony has survived 30 years in various IT careers; from hardware sales and service, support desk, linux systems administration, management, consultancy, and software development. He began coding commercially 8 years ago in Java for Structural Geology project, and moved on to full-stack web development. He has completed the Free Code Camp front-end and back-end curriculum for JavaScript, React/Redux, Node/Express, MongoDB and GraphQL. Tony is an active participant in Free Code Camp Sydney meetups. Currently, he is contracted as Project Manager for McLowd Financial Services Marketplace, a cloud-based software company."
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://www.code.sydney/static/img/promie_new.png",
+      "name": "Promie Yutasane",
+      "title": "Head of Vue CoE",
+      "socialUrl": {
+        "LinkedIn": "https://www.linkedin.com/in/promie-yutasane-74a024140/"
+      },
+      "description": "Promie is currently working as a Software Engineer at Hireup, a tech company with an online platform that connects people with disability with support workers. He has a very strong focus on full stack development and currently using NodeJS, MongoDB, GraphQL/Apollo, React and Vue. He is a part-time student at UNSW studying Masters of IT specialising in Artificial Intelligence and E-Commerce Systems. Promie spends his spare time mentoring new programmers at Code.Sydney. As one of the pioneer mentors, Promie has introduced standardised processes around GitHub code submission among developers. He is also the chief envangelist of Vue JS in Code.Sydney."
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://www.code.sydney/static/img/kevin.png",
+      "name": "Kevin Foong",
+      "title": "Head of Flask CoE",
+      "socialUrl": {
+        "LinkedIn": "https://www.linkedin.com/in/kevin-foong-044794/"
+      },
+      "description": "Kevin has over 20 years of working experience in a variety of IT related areas including software development, web design and information management. The latter in the area of library and information science. He is currently working as a System Administrator for NSW Health where he mainly utilises SQL for report generation. He recently started learning Python, at first because he wanted to get into data science, but then found Flask along the way. He now considers himself a Python and Flask enthusiast and is interested in sharing his knowledge and learning from others."
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://www.code.sydney/static/img/surya.png",
+      "name": "Surya Setiyaputra",
+      "title": "Head of React CoE",
+      "socialUrl": {
+        "LinkedIn": "https://au.linkedin.com/in/suryast"
+      },
+      "description": "Surya is a full-stack software developer with more than three-year professional experience with a previous life as a research scientist in Biophysics. He is a self-described ‘generalist’ with practical experience in setting up small businesses, personal finance, design, community building and tech startup in both Australia and Indonesia. Since mid-2019, Surya has been an active contributor to Free Code Camp Sydney meetups. As a self-taught developer, he is particularly interested in helping new coders who are interested in landing their entry role as a Junior Developer after going through the FreeCodeCamp full-stack curriculum. His current favourite web development stacks are Kotlin/Spring Boot, Ruby on Rails, Node, ReactJS and VueJS. In the near future, he aims to learn more SQL and functional programming. When he is not coding, Surya likes to read books about economics, anthropology, history and politics."
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://www.code.sydney/static/img/bin.png",
+      "name": "Bin Liu",
+      "title": "Head of Java CoE",
+      "socialUrl": {
+        "LinkedIn": "https://www.linkedin.com/in/bin-liu-308b841a/"
+      },
+      "description": "Bin has ten years working experience as a Software Developer and Business Intelligence consultant. His development career started with Java. Recently he is using some script languages like Python, Perl and JavaScript and actively participating as the lead developer of Census+ project. Bin has good sense in coding and is good at learning new technologies. He is interested in Python because it can be applied to many technological areas, such as web application development, data science and so on. He would like to make progress with others who are also interested in Python-related technologies."
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://www.code.sydney/static/img/june.png",
+      "name": "June Kongyang",
+      "title": "Head of Python CoE",
+      "socialUrl": {
+        "LinkedIn": "https://au.linkedin.com/in/june-kongyang"
+      },
+      "description": "June Kongyang is currently a design and development engineer. She has broad experience in design, development and testing of network security systems. June started coding using C and C++ for robotic control automation such as sensors and micro-controllers. June graduated with a masters degree in Electrical Engineering. She joined Code.Sydney due to her interest in both Python and JavaScript programming languages. She found both languages pretty handy on increasing work productivity. She is keen to share her knowledge to anyone who wants to learn coding."
+    }
+  ]
+}
