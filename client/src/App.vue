@@ -1,20 +1,19 @@
-/**
- * DELETE this comment
- * -------------------
- * Hamburger button and banner/header go in this file.
- */
-
 <template>
   <div id="app">
     <!-- Banner/Header -->
-    <!-- Hamburger -->
+    <Navbar />
     <router-view />
   </div>
 </template>
 
 <script>
-export default {};
+import Navbar from './components/Navbar.vue';
+
+export default {
+  components: {
+    Navbar
+  }
+};
 </script>
 
-<style scoped>
-</style>
+<style></style>
