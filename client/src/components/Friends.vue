@@ -19,4 +19,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+}
+
+@media screen and (min-width: 900px) {
+  /* Desktop View */
+}
+</style>
