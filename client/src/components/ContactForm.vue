@@ -55,11 +55,7 @@
         ></textarea>
       </div>
 
-      <button
-        disable="!formIsValid"
-        type="submit"
-        @click.stop.prevent="formSubmit()"
-      >
+      <button type="submit" @click.stop.prevent="formSubmit()">
         Submit
       </button>
     </form>
@@ -70,7 +66,6 @@
 export default {
   data() {
     return {
-      formIsValid: false,
       name: null,
       email: null,
       message: null
