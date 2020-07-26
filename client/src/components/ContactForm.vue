@@ -1,17 +1,26 @@
 <template>
   <div id="contact-form">
     <div class>
-      <a href="mailto:info@code.sydney?Subject=Enquiry" target="_top">info@code.sydney</a>
+      <a href="mailto:info@code.sydney?Subject=Enquiry" target="_top"
+        >info@code.sydney</a
+      >
     </div>
 
-    <form method="POST" action="/">
+    <form method action="/">
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <font-awesome-icon :icon="['fa', 'user']" />
           </span>
         </div>
-        <input type="text" class="form-control" placeholder="Name" name="name" required />
+        <input
+          v-model="name"
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          name="name"
+          required
+        />
       </div>
 
       <div class="input-group">
@@ -20,7 +29,14 @@
             <font-awesome-icon :icon="['fas', 'envelope']" />
           </span>
         </div>
-        <input type="text" class="form-control" placeholder="Email" name="email" required />
+        <input
+          v-model="email"
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          required
+        />
       </div>
 
       <div class="input-group">
@@ -29,23 +45,48 @@
             <font-awesome-icon :icon="['fa', 'pencil-alt']" />
           </span>
         </div>
-        <textarea class="form-control" placeholder="Message" rows="5" name="message" required></textarea>
+        <textarea
+          v-model="message"
+          class="form-control"
+          placeholder="Message"
+          rows="5"
+          name="message"
+          required
+        ></textarea>
       </div>
 
-      <button type="submit" class>Submit</button>
+      <button
+        disable="!formIsValid"
+        type="submit"
+        @click.stop.prevent="formSubmit()"
+      >
+        Submit
+      </button>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      formIsValid: false,
+      name: null,
+      email: null,
+      message: null
+    };
+  },
+  methods: {
+    formSubmit() {
+      console.log(`${this.name} from ${this.email} senting ${this.message}`);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 #contact-form {
-  flex: 0 0 75%;
   max-width: 75%;
-  display: flex;
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -126,7 +167,7 @@ a {
 .input-group > .custom-file {
   position: relative;
   flex: 1 1 auto;
-  width: 1%;
+  width: 100%;
   margin-bottom: 0;
 }
 
@@ -156,7 +197,6 @@ button {
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
-  vertical-align: middle;
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
