@@ -7,10 +7,10 @@
       <div class="navbar-content">
         <ul>
           <li>
-            <a>Home</a>
+            <router-link to="/">Home</router-link>
           </li>
           <li>
-            <a>Contact</a>
+            <router-link to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
