@@ -7,10 +7,18 @@
       <div class="navbar-content">
         <ul>
           <li>
-            <router-link to="/">Home</router-link>
+            <router-link
+              :to="{ name: 'home' }"
+              @click="showNavbar = !showNavbar"
+              >Home</router-link
+            >
           </li>
           <li>
-            <router-link to="/contact">Contact</router-link>
+            <router-link
+              :to="{ name: 'contact' }"
+              @click="showNavbar = !showNavbar"
+              >Contact</router-link
+            >
           </li>
         </ul>
       </div>
@@ -23,6 +31,7 @@
         @click="showNavbar = !showNavbar"
       />
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
