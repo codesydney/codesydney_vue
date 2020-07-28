@@ -1,24 +1,16 @@
 <template>
   <div>
     <div id="myNav" :class="{ navbar_open: showNavbar, navbar: !showNavbar }">
-      <div class="closebtn" @click="showNavbar = !showNavbar">
+      <div class="closebtn" @click.stop.prevent="showNavbar = !showNavbar">
         <font-awesome-icon :icon="['fa', 'times']" class="navbar__times" />
       </div>
-      <div class="navbar-content">
+      <div class="navbar-content" @click.stop.prevent="showNavbar = !showNavbar">
         <ul>
           <li>
-            <router-link
-              :to="{ name: 'home' }"
-              @click="showNavbar = !showNavbar"
-              >Home</router-link
-            >
+            <router-link :to="{ name: 'home' }">Home</router-link>
           </li>
           <li>
-            <router-link
-              :to="{ name: 'contact' }"
-              @click="showNavbar = !showNavbar"
-              >Contact</router-link
-            >
+            <router-link :to="{ name: 'contact' }">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -28,7 +20,7 @@
       <font-awesome-icon
         :icon="['fa', 'bars']"
         class="navbar__bars"
-        @click="showNavbar = !showNavbar"
+        @click.stop.prevent="showNavbar = !showNavbar"
       />
     </div>
     <router-view></router-view>
