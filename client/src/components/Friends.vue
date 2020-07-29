@@ -1,7 +1,16 @@
 <template>
-  <div>
-    <div class="friends-container">
-      <div>Friends</div>
+  <div class="container">
+    <div class="title-section">
+      <div class="title">Friends</div>
+    </div>
+
+    <div class="friends-section">
+      <div v-for="friend in friends" v-bind:key="friend.id">
+        <img :src="'../assets/friends/' + friend.logo" />
+        <div>{{ friend.logo }}</div>
+        <h1>{{ friend.name }}</h1>
+        <div>{{ friend.description }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,30 +29,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.friends-container {
+.title-section {
   color: #fff;
   background-color: #224365;
   text-align: center;
   margin: auto;
 }
 
+.friends-section {
+  display: flex;
+}
+
 @media screen and (max-width: 600px) {
   /* Mobile View */
-  .friends-container {
+  .title-section {
     padding: 10px;
-    div {
+    .title {
       font-size: 25px;
     }
   }
 }
 
+.friends-section {
+  flex-direction: column;
+}
+
 @media screen and (min-width: 900px) {
   /* Desktop View */
-  .friends-container {
+  .title-section {
     padding: 20px;
-    div {
+    .title {
       font-size: 40px;
     }
+  }
+
+  .friends-section {
+    flex-direction: row;
   }
 }
 </style>
