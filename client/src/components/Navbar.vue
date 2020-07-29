@@ -71,13 +71,17 @@ export default {
   margin-top: 30px;
 }
 
-.navbar_open ul li {
-  list-style: none;
-  color: white;
-  text-align: center;
+li {
+   list-style-type: none;
 }
 
-.navbar_open ul li:hover {
+.navbar_open ul li a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar_open ul li a:hover {
   cursor: pointer;
   color: yellow;
 }
