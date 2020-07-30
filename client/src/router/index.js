@@ -5,21 +5,20 @@ import Contact from "../views/Contact.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
+const routes = [{
+    path: '/',
+    name: 'home',
     component: Home
   },
   {
-    path: "/contact",
-    name: "Contact",
+    path: '/contact',
+    name: 'contact',
     component: Contact
   }
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   routes
 });
 
