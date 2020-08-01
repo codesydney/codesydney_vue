@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Contact</h1>
-    <CalendyWidget />
+    <CalendlyWidget />
     <!-- Email Form -->
     <ContactForm />
   </div>
@@ -9,12 +9,12 @@
 
 <script>
 import ContactForm from '../components/ContactForm.vue';
-import CalendyWidget from '../components/CalendyWidget.vue';
+import CalendlyWidget from '../components/CalendlyWidget.vue';
 
 export default {
   components: {
     ContactForm: ContactForm,
-    CalendyWidget: CalendyWidget
+    CalendlyWidget: CalendlyWidget
   }
 };
 </script>
