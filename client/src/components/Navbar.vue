@@ -1,16 +1,16 @@
 <template>
   <div>
     <div id="myNav" :class="{ navbar_open: showNavbar, navbar: !showNavbar }">
-      <div class="closebtn" @click="showNavbar = !showNavbar">
+      <div class="closebtn" @click.stop.prevent="showNavbar = !showNavbar">
         <font-awesome-icon :icon="['fa', 'times']" class="navbar__times" />
       </div>
-      <div class="navbar-content">
+      <div class="navbar-content" @click.stop.prevent="showNavbar = !showNavbar">
         <ul>
           <li>
-            <a>Home</a>
+            <router-link :to="{ name: 'home' }">Home</router-link>
           </li>
           <li>
-            <a>Contact</a>
+            <router-link :to="{ name: 'contact' }">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -20,9 +20,10 @@
       <font-awesome-icon
         :icon="['fa', 'bars']"
         class="navbar__bars"
-        @click="showNavbar = !showNavbar"
+        @click.stop.prevent="showNavbar = !showNavbar"
       />
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -70,13 +71,17 @@ export default {
   margin-top: 30px;
 }
 
-.navbar_open ul li {
-  list-style: none;
-  color: white;
-  text-align: center;
+li {
+   list-style-type: none;
 }
 
-.navbar_open ul li:hover {
+.navbar_open ul li a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar_open ul li a:hover {
   cursor: pointer;
   color: yellow;
 }

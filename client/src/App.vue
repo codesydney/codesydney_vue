@@ -2,7 +2,6 @@
   <div id="app">
     <!-- Banner/Header -->
     <Navbar />
-    <router-view />
   </div>
 </template>
 
