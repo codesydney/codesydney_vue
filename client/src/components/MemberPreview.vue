@@ -2,14 +2,15 @@
   <div class="memberPreview">
     <div v-for="member in members" :key="member.id" class="memberPreview__member">
       <img
-        :src="member.imageUrl"
+        :src="member.imageURL"
         :alt="member.name"
         :title="member.name"
         class="memberPreview__member-portrait"
       />
       <h2>{{ member.name }}</h2>
       <h4>{{ member.title }}</h4>
-      <!-- The badges are currently use code sydney icon, should be replaced when badge components ready -->
+
+      <!-- The badges are currently use code sydney icon, should be replaced when badge components ready 
       <div class="memberPreview__member-badges">
         <img
           src="../../../_docs/assets/favicon.png"
@@ -72,14 +73,16 @@
           class="memberPreview__member-badge"
         />
       </div>
+      -->
       <div class="memberPreview__member-socialLinks">
-        <a :href="member.socialUrl.LinkedIn" target="_blank">
+        <a :href="member.socialURL" target="_blank">
           <font-awesome-icon
             :icon="['fab', 'linkedin']"
             title="LinkedIn"
             class="memberPreview__member-socialLink"
           />
         </a>
+        <!--
         <a :href="member.socialUrl.LinkedIn" target="_blank">
           <font-awesome-icon
             :icon="['fab', 'facebook-square']"
@@ -87,6 +90,7 @@
             class="memberPreview__member-socialLink"
           />
         </a>
+        -->
       </div>
     </div>
   </div>
@@ -99,19 +103,19 @@ export default {
   name: 'MemberPreview',
   data() {
     return {
-      members: []
+      members: [],
     };
   },
   created() {
     members
       .getMembers()
-      .then(res => {
+      .then((res) => {
         this.members = res.data;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
-  }
+  },
 };
 </script>
 
