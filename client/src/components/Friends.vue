@@ -5,10 +5,16 @@
     </div>
 
     <div class="friends-section">
-      <div v-for="friend in friends" v-bind:key="friend.id">
-        <img v-bind:src="getImgUrl(friend.logo)" />
-        <h1>{{ friend.name }}</h1>
-        <div>{{ friend.description }}</div>
+      <div v-for="friend in friends" v-bind:key="friend.id" class="friend">
+        <img
+          v-bind:src="getImgUrl(friend.logo)"
+          class="company-logo"
+          v-bind:alt="friend.name"
+        />
+        <a v-bind:href="friend.url" target="_blank" rel="noopener noreferrer">
+          <div class="friend-name">{{ friend.name }}</div>
+        </a>
+        <div class="friend-description">{{ friend.description }}</div>
       </div>
     </div>
   </div>
@@ -22,53 +28,100 @@ export default {
   computed: {
     friends() {
       return friends;
-    }
+    },
   },
   methods: {
     getImgUrl(pic) {
-      return require(`../assets/friends/${pic}`)
-    }
+      return require(`../assets/friends/${pic}`);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .title-section {
+  display: flex;
   color: #fff;
   background-color: #224365;
+  width: 100%;
   text-align: center;
-  margin: auto;
+}
+
+.title {
+  font-size: 40px;
+  margin: 0 auto;
+  padding: 30px 0px;
 }
 
 .friends-section {
   display: flex;
 }
 
-@media screen and (max-width: 600px) {
-  /* Mobile View */
-  .title-section {
-    padding: 10px;
-    .title {
-      font-size: 25px;
-    }
-  }
+a {
+  text-decoration: none;
 }
 
-.friends-section {
-  flex-direction: column;
+.friend-name {
+  color: #224365;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.friend-description {
+  text-align: justify;
+}
+
+.company-logo {
+  width: 370px;
+  height: 95px;
+}
+
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .company-logo {
+    width: 100%;
+    height: 75px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 35px;
+    padding: 25px 0px;
+  }
+
+  .friends-section {
+    flex-direction: column;
+  }
+
+  .friend {
+    padding: 15px 0px;
+  }
 }
 
 @media screen and (min-width: 900px) {
   /* Desktop View */
-  .title-section {
-    padding: 20px;
-    .title {
-      font-size: 40px;
-    }
+  .friends-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    justify-content: center;
   }
 
-  .friends-section {
-    flex-direction: row;
+  .friend {
+    width: 400px;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  .friend-description {
+    padding: 0px 3px;
   }
 }
 </style>
