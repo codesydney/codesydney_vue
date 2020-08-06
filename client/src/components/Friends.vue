@@ -42,45 +42,39 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-}
+  .title-section {
+    display: flex;
+    color: #fff;
+    background-color: #224365;
+    width: 100%;
+    text-align: center;
+    .title {
+      font-size: 40px;
+      margin: 0 auto;
+      padding: 30px 0px;
+    }
+  }
 
-.title-section {
-  display: flex;
-  color: #fff;
-  background-color: #224365;
-  width: 100%;
-  text-align: center;
-}
-
-.title {
-  font-size: 40px;
-  margin: 0 auto;
-  padding: 30px 0px;
-}
-
-.friends-section {
-  display: flex;
-}
-
-a {
-  text-decoration: none;
-}
-
-.friend-name {
-  color: #224365;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-  padding: 5px 0px;
-}
-
-.friend-description {
-  text-align: justify;
-}
-
-.company-logo {
-  width: 370px;
-  height: 95px;
+  .friends-section {
+    display: flex;
+    .company-logo {
+      width: 370px;
+      height: 95px;
+    }
+    .friend-name {
+      color: #224365;
+      font-weight: bold;
+      font-size: 25px;
+      text-align: center;
+      padding: 15px 0px;
+    }
+    .friend-description {
+      text-align: justify;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
