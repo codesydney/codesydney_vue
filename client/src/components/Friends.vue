@@ -6,8 +6,7 @@
 
     <div class="friends-section">
       <div v-for="friend in friends" v-bind:key="friend.id">
-        <img :src="getImgUrl(friend.logo)" />
-        <div>{{ friend.logo }}</div>
+        <img v-bind:src="getImgUrl(friend.logo)" />
         <h1>{{ friend.name }}</h1>
         <div>{{ friend.description }}</div>
       </div>
