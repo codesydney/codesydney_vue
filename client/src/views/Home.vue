@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Headline -->
-    <h1>Hello World!</h1>
+    <h1>Sydney Volunteer Programmers</h1>
     <!-- Member Previews -->
     <MemberPreview />
     <Friends />
@@ -15,8 +15,8 @@ import MemberPreview from '@/components/MemberPreview.vue';
 export default {
   components: {
     Friends,
-    MemberPreview
-  }
+    MemberPreview,
+  },
 };
 </script>
 

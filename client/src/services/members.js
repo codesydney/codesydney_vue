@@ -7,16 +7,16 @@
 import axios from 'axios';
 // The baseURL will be replaced when we have the real back-end
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://codesydney.pythonanywhere.com',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 export default {
   getMembers() {
-    return apiClient.get('/members');
-  }
+    return apiClient.get('/api/codesydneysiders/all');
+  },
 };
