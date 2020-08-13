@@ -1,16 +1,20 @@
 <template>
-  <div class="memberPreview">
-    <div v-for="member in members" :key="member.id" class="memberPreview__member">
-      <img
-        :src="member.imageURL"
-        :alt="member.name"
-        :title="member.name"
-        class="memberPreview__member-portrait"
-      />
-      <h2>{{ member.name }}</h2>
-      <h4>{{ member.title }}</h4>
+  <div>
+    <div class="title-section">
+      <div class="title">Centres of Excellence</div>
+    </div>
+    <div class="memberPreview">
+      <div v-for="member in members" :key="member.id" class="memberPreview__member">
+        <img
+          :src="member.imageURL"
+          :alt="member.name"
+          :title="member.name"
+          class="memberPreview__member-portrait"
+        />
+        <h2>{{ member.name }}</h2>
+        <h4>{{ member.title }}</h4>
 
-      <!-- The badges are currently use code sydney icon, should be replaced when badge components ready 
+        <!-- The badges are currently use code sydney icon, should be replaced when badge components ready 
       <div class="memberPreview__member-badges">
         <img
           src="../../../_docs/assets/favicon.png"
@@ -73,16 +77,16 @@
           class="memberPreview__member-badge"
         />
       </div>
-      -->
-      <div class="memberPreview__member-socialLinks">
-        <a :href="member.socialURL" target="_blank">
-          <font-awesome-icon
-            :icon="['fab', 'linkedin']"
-            title="LinkedIn"
-            class="memberPreview__member-socialLink"
-          />
-        </a>
-        <!--
+        -->
+        <div class="memberPreview__member-socialLinks">
+          <a :href="member.socialURL" target="_blank">
+            <font-awesome-icon
+              :icon="['fab', 'linkedin']"
+              title="LinkedIn"
+              class="memberPreview__member-socialLink"
+            />
+          </a>
+          <!--
         <a :href="member.socialUrl.LinkedIn" target="_blank">
           <font-awesome-icon
             :icon="['fab', 'facebook-square']"
@@ -90,7 +94,8 @@
             class="memberPreview__member-socialLink"
           />
         </a>
-        -->
+          -->
+        </div>
       </div>
     </div>
   </div>
@@ -140,6 +145,18 @@ export default {
     @media (min-width: 1800px) {
       @content;
     }
+  }
+}
+.title-section {
+  display: flex;
+  color: #fff;
+  background-color: #224365;
+  width: 100%;
+  text-align: center;
+  .title {
+    font-size: 40px;
+    margin: 0 auto;
+    padding: 30px 0px;
   }
 }
 .memberPreview {
