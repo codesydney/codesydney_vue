@@ -15,7 +15,7 @@
           <a v-bind:href="item.badge" target="_blank" rel="noopener noreferrer">
             <img
               v-bind:src="getBadgesUrl(item.badge_image_name)"
-              title="badgeTitle"
+              :title="item.badge_name"
               class="memberPreview__member-badge"
             />
           </a>
