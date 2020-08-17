@@ -1,38 +1,40 @@
 <template>
-  <div class="memberPreview">
-     <div class="title-section">
-      <div class="title">Friends</div>
+  <div>
+    <div class="title-section">
+      <div class="title">Centres of Excellence</div>
     </div>
-    <div v-for="member in members" :key="member.id" class="memberPreview__member">
-      <img
-        v-bind:src="getMembersUrl(member.photo)"
-        :alt="member.name"
-        :title="member.name"
-        class="memberPreview__member-portrait"
-      />
-      <h2>{{ member.name }}</h2>
-      <h4>{{ member.title }}</h4>
+    <div class="memberPreview">
+      <div v-for="member in members" :key="member.id" class="memberPreview__member">
+        <img
+          v-bind:src="getMembersUrl(member.photo)"
+          :alt="member.name"
+          :title="member.name"
+          class="memberPreview__member-portrait"
+        />
+        <h2>{{ member.name }}</h2>
+        <h4>{{ member.title }}</h4>
 
-      <div class="memberPreview__member-badges">
-        <div v-for="(item, key) in member.badges" :key="key">
-          <a v-bind:href="item.badge" target="_blank" rel="noopener noreferrer">
-            <img
-              v-bind:src="getBadgesUrl(item.badge_image_name)"
-              :title="item.badge_name"
-              class="memberPreview__member-badge"
+        <div class="memberPreview__member-badges">
+          <div v-for="(item, key) in member.badges" :key="key">
+            <a v-bind:href="item.badge" target="_blank" rel="noopener noreferrer">
+              <img
+                v-bind:src="getBadgesUrl(item.badge_image_name)"
+                :title="item.badge_name"
+                class="memberPreview__member-badge"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="memberPreview__member-socialLinks">
+          <a :href="member.socialURL" target="_blank">
+            <font-awesome-icon
+              :icon="['fab', 'linkedin']"
+              title="LinkedIn"
+              class="memberPreview__member-socialLink"
             />
           </a>
         </div>
-      </div>
-
-      <div class="memberPreview__member-socialLinks">
-        <a :href="member.socialURL" target="_blank">
-          <font-awesome-icon
-            :icon="['fab', 'linkedin']"
-            title="LinkedIn"
-            class="memberPreview__member-socialLink"
-          />
-        </a>
       </div>
     </div>
   </div>

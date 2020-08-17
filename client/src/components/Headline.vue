@@ -11,7 +11,7 @@
       </div>
       <div>
         <img
-          :src="randomMember.imageURL"
+          :src="getMembersUrl(randomMember.photo)"
           :alt="randomMember.name"
           :title="randomMember.name"
           class="headline__randomMember-portrait"
@@ -44,6 +44,11 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+  },
+  methods: {
+    getMembersUrl(pic) {
+      return require(`../assets/members/${pic}`);
+    },
   },
   computed: {
     randomMember() {
