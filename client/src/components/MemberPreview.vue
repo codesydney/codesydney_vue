@@ -1,101 +1,38 @@
 <template>
-  <div>
-    <div class="title-section">
-      <div class="title">Centres of Excellence</div>
+  <div class="memberPreview">
+     <div class="title-section">
+      <div class="title">Friends</div>
     </div>
-    <div class="memberPreview">
-      <div v-for="member in members" :key="member.id" class="memberPreview__member">
-        <img
-          :src="member.imageURL"
-          :alt="member.name"
-          :title="member.name"
-          class="memberPreview__member-portrait"
-        />
-        <h2>{{ member.name }}</h2>
-        <h4>{{ member.title }}</h4>
+    <div v-for="member in members" :key="member.id" class="memberPreview__member">
+      <img
+        v-bind:src="getMembersUrl(member.photo)"
+        :alt="member.name"
+        :title="member.name"
+        class="memberPreview__member-portrait"
+      />
+      <h2>{{ member.name }}</h2>
+      <h4>{{ member.title }}</h4>
 
-        <!-- The badges are currently use code sydney icon, should be replaced when badge components ready 
       <div class="memberPreview__member-badges">
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-        <img
-          src="../../../_docs/assets/favicon.png"
-          :alt="member.name"
-          title="badgeTitle"
-          class="memberPreview__member-badge"
-        />
-      </div>
-        -->
-        <div class="memberPreview__member-socialLinks">
-          <a :href="member.socialURL" target="_blank">
-            <font-awesome-icon
-              :icon="['fab', 'linkedin']"
-              title="LinkedIn"
-              class="memberPreview__member-socialLink"
+        <div v-for="(item, key) in member.badges" :key="key">
+          <a v-bind:href="item.badge" target="_blank" rel="noopener noreferrer">
+            <img
+              v-bind:src="getBadgesUrl(item.badge_image_name)"
+              :title="item.badge_name"
+              class="memberPreview__member-badge"
             />
           </a>
-          <!--
-        <a :href="member.socialUrl.LinkedIn" target="_blank">
+        </div>
+      </div>
+
+      <div class="memberPreview__member-socialLinks">
+        <a :href="member.socialURL" target="_blank">
           <font-awesome-icon
-            :icon="['fab', 'facebook-square']"
-            title="Facebook"
+            :icon="['fab', 'linkedin']"
+            title="LinkedIn"
             class="memberPreview__member-socialLink"
           />
         </a>
-          -->
-        </div>
       </div>
     </div>
   </div>
@@ -120,6 +57,14 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+  },
+  methods: {
+    getBadgesUrl(pic) {
+      return require(`../assets/badges/${pic}`);
+    },
+    getMembersUrl(pic) {
+      return require(`../assets/members/${pic}`);
+    },
   },
 };
 </script>
@@ -240,8 +185,8 @@ export default {
       }
     }
     &-socialLink {
-      height: 16px;
-      width: 16px;
+      height: 23px;
+      width: 23px;
       color: #0073b1;
     }
   }
