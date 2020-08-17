@@ -12,7 +12,7 @@
           class="memberPreview__member-portrait"
         />
         <h2>{{ member.name }}</h2>
-        <h4>{{ member.title }}</h4>
+        <h4 class="memberPreview__member-title">{{ member.title }}</h4>
 
         <div class="memberPreview__member-badges">
           <div v-for="(item, key) in member.badges" :key="key">
@@ -140,6 +140,20 @@ export default {
       }
       @include respond(phone) {
         height: 100px;
+      }
+    }
+    &-title {
+      @include respond(big-desktop) {
+        max-width: 200px;
+      }
+      @include respond(tab-land) {
+        max-width: 160px;
+      }
+      @include respond(tab-port) {
+        max-width: 130px;
+      }
+      @include respond(phone) {
+        max-width: 100px;
       }
     }
     &-badges,

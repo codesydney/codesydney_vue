@@ -20,7 +20,7 @@
     </div>
     <div>
       <router-link :to="{ name: 'contact' }" class="headline-link">
-        <button>Schedule a meeting for a free consultation &rarr;</button>
+        <button>Schedule a meeting for a free consultation</button>
       </router-link>
     </div>
   </div>
