@@ -17,6 +17,13 @@
           </li>
         </ul>
       </div>
+      <div class="navbar-content">
+        <ul>
+          <li>
+            <a href="https://codesydney.pythonanywhere.com/">Legacy Site</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="openbtn">
