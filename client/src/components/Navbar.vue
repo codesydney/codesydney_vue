@@ -4,7 +4,10 @@
       <div class="closebtn" @click.stop.prevent="showNavbar = !showNavbar">
         <font-awesome-icon :icon="['fa', 'times']" class="navbar__times" />
       </div>
-      <div class="navbar-content" @click.stop.prevent="showNavbar = !showNavbar">
+      <div
+        class="navbar-content"
+        @click.stop.prevent="showNavbar = !showNavbar"
+      >
         <ul>
           <li>
             <router-link :to="{ name: 'home' }">Home</router-link>
@@ -31,9 +34,9 @@
 export default {
   data() {
     return {
-      showNavbar: false
+      showNavbar: false,
     };
-  }
+  },
 };
 </script>
 
@@ -72,10 +75,10 @@ export default {
 }
 
 li {
-   list-style-type: none;
+  list-style-type: none;
 }
 
-.navbar_open ul li a{
+.navbar_open ul li a {
   color: white;
   text-align: center;
   text-decoration: none;

@@ -55,9 +55,7 @@
         ></textarea>
       </div>
 
-      <button type="submit" @click.stop.prevent="formSubmit()">
-        Submit
-      </button>
+      <button type="submit" @click.stop.prevent="formSubmit()">Submit</button>
     </form>
   </div>
 </template>
@@ -68,14 +66,14 @@ export default {
     return {
       name: null,
       email: null,
-      message: null
+      message: null,
     };
   },
   methods: {
     formSubmit() {
       console.log(`${this.name} from ${this.email} senting ${this.message}`);
-    }
-  }
+    },
+  },
 };
 </script>
 

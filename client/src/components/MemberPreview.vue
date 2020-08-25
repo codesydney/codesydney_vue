@@ -1,10 +1,14 @@
 <template>
   <div>
     <div class="title-section">
-      <div class="title">Centres of Excellence</div>
+      <div class="title">Our People</div>
     </div>
     <div class="memberPreview">
-      <div v-for="member in members" :key="member.id" class="memberPreview__member">
+      <div
+        v-for="member in members"
+        :key="member.id"
+        class="memberPreview__member"
+      >
         <img
           v-bind:src="getMembersUrl(member.photo)"
           :alt="member.name"
@@ -16,7 +20,11 @@
 
         <div class="memberPreview__member-badges">
           <div v-for="(item, key) in member.badges" :key="key">
-            <a v-bind:href="item.badge" target="_blank" rel="noopener noreferrer">
+            <a
+              v-bind:href="item.badge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 v-bind:src="getBadgesUrl(item.badge_image_name)"
                 :title="item.badge_name"

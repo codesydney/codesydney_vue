@@ -1,13 +1,19 @@
 <template>
   <div class="headline">
     <div class="headline__title">
-      <img src="../assets/codesydney.png" alt="Code.Sydney Logo" class="headline__title-logo" />
+      <img
+        src="../assets/codesydney.png"
+        alt="Code.Sydney Logo"
+        class="headline__title-logo"
+      />
       <h1>Code.Sydney</h1>
       <h2>Sydney Volunteer Programmers</h2>
     </div>
     <div class="headline__randomMember">
       <div class="headline__randomMember-title">
-        <h1 v-show="randomMember">Meet {{randomMember.name}}, the {{randomMember.title}}</h1>
+        <h1 v-show="randomMember">
+          Meet {{ randomMember.name }}, the {{ randomMember.title }}
+        </h1>
       </div>
       <div>
         <img

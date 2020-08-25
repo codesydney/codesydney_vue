@@ -9,18 +9,18 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
   },
   {
     path: '/contact',
     name: 'contact',
-    component: Contact
-  }
+    component: Contact,
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
 });
 
 export default router;

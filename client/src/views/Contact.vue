@@ -14,8 +14,8 @@ import CalendlyWidget from '../components/CalendlyWidget.vue';
 export default {
   components: {
     ContactForm: ContactForm,
-    CalendlyWidget: CalendlyWidget
-  }
+    CalendlyWidget: CalendlyWidget,
+  },
 };
 </script>
 
