@@ -1,14 +1,5 @@
 <template>
   <div class="headline">
-    <div class="headline__title">
-      <img
-        src="../assets/codesydney.png"
-        alt="Code.Sydney Logo"
-        class="headline__title-logo"
-      />
-      <h1>Code.Sydney</h1>
-      <h2>Sydney Volunteer Programmers</h2>
-    </div>
     <div class="headline__randomMember">
       <div class="headline__randomMember-title">
         <h1 v-show="randomMember">
@@ -72,12 +63,6 @@ export default {
 .headline {
   text-align: center;
   margin-bottom: 5vh;
-  &__title {
-    margin-bottom: 10vh;
-    &-logo {
-      height: 200px;
-    }
-  }
   &-link button {
     border-radius: 10rem;
     position: relative;
