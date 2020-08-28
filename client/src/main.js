@@ -10,6 +10,7 @@ import {
   faLinkedin,
   faFacebookSquare,
 } from '@fortawesome/free-brands-svg-icons';
+
 import {
   faBars,
   faTimes,
@@ -17,6 +18,8 @@ import {
   faEnvelope,
   faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
+
+import vuetify from './plugins/vuetify';
 
 library.add(
   faLinkedin,
@@ -35,5 +38,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  vuetify,
   render: (h) => h(App),
 }).$mount('#app');
