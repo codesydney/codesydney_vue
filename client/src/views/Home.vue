@@ -6,7 +6,6 @@
     <Headline />
     <!-- Member Previews -->
     <MemberPreview />
-    <Friends />
   </div>
 </template>
 
