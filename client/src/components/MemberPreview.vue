@@ -15,8 +15,10 @@
           :title="member.name"
           class="memberPreview__member-portrait"
         />
+
+
         <h2>{{ member.name }}</h2>
-        <h4 class="memberPreview__member-title">{{ member.title }}</h4>
+        <div class="memberPreview__member-title">{{ member.title }}</div>
 
         <div class="memberPreview__member-badges">
           <div v-for="(item, key) in member.badges" :key="key">
@@ -104,8 +106,7 @@ export default {
 }
 .title-section {
   display: flex;
-  color: #fff;
-  background-color: #224365;
+  font-family: 'Open Sans', sans-serif;
   width: 100%;
   text-align: center;
   .title {
@@ -115,6 +116,7 @@ export default {
   }
 }
 .memberPreview {
+  font-family: 'Open Sans', sans-serif;
   display: grid;
   margin: 0 10vw;
   grid-template-columns: repeat(3, 1fr);
