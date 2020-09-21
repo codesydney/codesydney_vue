@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <!-- Banner/Header -->
     <Navbar />
-  </div>
+  </v-app>
 </template>
 
 <script>
