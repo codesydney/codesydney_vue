@@ -1,26 +1,30 @@
 <template>
-  <div id="contact-form">
-    <div class>
-      <a href="mailto:info@code.sydney?Subject=Enquiry" target="_top"
-        >info@code.sydney</a
+  <v-card id="contact-form">
+    <v-card-title>
+      <a
+        color="primary"
+        href="mailto:info@code.sydney?Subject=Enquiry"
+        target="_top"
       >
-    </div>
+        info@code.sydney
+      </a>
+    </v-card-title>
 
-    <form method action="/">
+    <v-form method action="/">
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <font-awesome-icon :icon="['fa', 'user']" />
           </span>
         </div>
-        <input
+        <v-text-field
           v-model="name"
           type="text"
           class="form-control"
           placeholder="Name"
           name="name"
           required
-        />
+        ></v-text-field>
       </div>
 
       <div class="input-group">
@@ -29,35 +33,42 @@
             <font-awesome-icon :icon="['fas', 'envelope']" />
           </span>
         </div>
-        <input
+        <v-text-field
           v-model="email"
           type="text"
           class="form-control"
           placeholder="Email"
           name="email"
           required
-        />
+        ></v-text-field>
       </div>
-
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <font-awesome-icon :icon="['fa', 'pencil-alt']" />
           </span>
         </div>
-        <textarea
+        <v-textarea
           v-model="message"
           class="form-control"
           placeholder="Message"
           rows="5"
           name="message"
           required
-        ></textarea>
+        ></v-textarea>
       </div>
 
-      <button type="submit" @click.stop.prevent="formSubmit()">Submit</button>
-    </form>
-  </div>
+      <v-btn
+        large
+        block
+        color="secondary"
+        type="submit"
+        @click.stop.prevent="formSubmit()"
+      >
+        Submit
+      </v-btn>
+    </v-form>
+  </v-card>
 </template>
 
 <script>
@@ -79,7 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 #contact-form {
-  max-width: 75%;
+  max-width: 100%;
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -185,7 +196,6 @@ input {
 
 button {
   cursor: pointer;
-  display: block;
   width: 100%;
   font-weight: 400;
   text-align: center;
