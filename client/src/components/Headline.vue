@@ -1,19 +1,10 @@
 <template>
   <div class="headline">
-    <div class="headline__title">
-      <img
-        src="../assets/codesydney.png"
-        alt="Code.Sydney Logo"
-        class="headline__title-logo"
-      />
-      <h1>Code.Sydney</h1>
-      <h2>Sydney Volunteer Programmers</h2>
-    </div>
     <div class="headline__randomMember">
       <div class="headline__randomMember-title">
-        <h1 v-show="randomMember">
-          Meet {{ randomMember.name }}, the {{ randomMember.title }}
-        </h1>
+        <div v-show="randomMember">
+          Meet {{ randomMember.name }}, {{ randomMember.headline }}
+        </div>
       </div>
       <div>
         <img
@@ -26,7 +17,7 @@
     </div>
     <div>
       <router-link :to="{ name: 'contact' }" class="headline-link">
-        <button>Schedule a meeting for a free consultation</button>
+        <button>Book a meeting with me</button>
       </router-link>
     </div>
   </div>
@@ -70,21 +61,16 @@ export default {
 
 <style lang="scss" scoped>
 .headline {
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   margin-bottom: 5vh;
-  &__title {
-    margin-bottom: 10vh;
-    &-logo {
-      height: 200px;
-    }
-  }
   &-link button {
     border-radius: 10rem;
     position: relative;
     margin: 5vh;
     padding: 20px;
     font-size: 1rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: white;
     background-color: #224365;
     cursor: pointer;
@@ -115,9 +101,15 @@ export default {
     }
   }
   &__randomMember-portrait {
-    height: 200px;
+    height: 350px;
     clip-path: circle();
     margin: 2vh auto;
+  }
+  &__randomMember-title {
+    font-size: 20px;
+    font-weight:bold;
+    margin: 0 auto;
+    padding: 0px 0px;
   }
 }
 </style>

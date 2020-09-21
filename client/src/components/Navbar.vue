@@ -13,7 +13,17 @@
             <router-link :to="{ name: 'home' }">Home</router-link>
           </li>
           <li>
+            <router-link :to="{ name: 'friends' }">Friends</router-link>
+          </li>
+          <li>
             <router-link :to="{ name: 'contact' }">Contact</router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-content">
+        <ul>
+          <li>
+            <a href="https://codesydney.pythonanywhere.com/">Legacy Site</a>
           </li>
         </ul>
       </div>
