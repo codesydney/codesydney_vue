@@ -7,14 +7,15 @@
 ## Setup
 
 1. Install [NVM](https://github.com/nvm-sh/nvm) or [NVM-Windows](https://github.com/coreybutler/nvm-windows).
-   - _NVM-Windows_ `nvm install 14.7.0`
+   - _NVM-Windows_ `nvm install latest`
    - _NVM_ [manual](https://github.com/nvm-sh/nv)
 2. Set node version:
    - If NVM - `nvm use`
-   - If NVM-Windows - `nvm use 14.7.0
-3. Install [Vue.js](https://vuejs.org/v2/guide/installation.html#NPM).
-   - _Optional_ Install Vue [Devtools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools).
-   - _Optional_ Install the [Vue CLI](https://cli.vuejs.org/guide/installation.html).
+   - If NVM-Windows - `nvm use [insert version of latest - can be found with 'nvm list']`
+3. Install Vue:
+   - Install the [Vue CLI](https://cli.vuejs.org/guide/installation.html).
+   - _Recommended_ Install Vue [Devtools](https://vuejs.org/v2/guide/installation.html#Vue-Devtools).
+   
 4. Install [VS Code](https://code.visualstudio.com/download).
    Setup VS Code extensions:
    - Vetur
