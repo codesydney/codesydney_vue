@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h1>Contact</h1>
+  <v-card>
+    <v-card-title>Contact</v-card-title>
     <CalendlyWidget />
-    <!-- Email Form -->
+    <v-divider inset></v-divider>
     <ContactForm />
-  </div>
+  </v-card>
 </template>
 
 <script>

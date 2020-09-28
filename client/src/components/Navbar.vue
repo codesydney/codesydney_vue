@@ -116,6 +116,8 @@ li {
   position: absolute;
   top: 20px;
   left: 45px;
+  width: 30px;
+  height: 25px;
   font-size: 2rem;
   color: white;
   cursor: pointer;
@@ -128,6 +130,8 @@ li {
   height: 25px;
   font-size: 2rem;
   cursor: pointer;
+  margin-left: 8px;
+  margin-bottom: 16px;
 }
 
 @media screen and (max-height: 450px) {
