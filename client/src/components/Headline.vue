@@ -1,10 +1,8 @@
 <template>
-  <div class="headline">
+  <div class="headline" v-if="randomMember">
     <div class="headline__randomMember">
       <div class="headline__randomMember-title">
-        <div v-show="randomMember">
-          Meet {{ randomMember.name }}, {{ randomMember.headline }}
-        </div>
+        <div>Meet {{ randomMember.name }}, {{ randomMember.headline }}</div>
       </div>
       <div>
         <img
@@ -107,7 +105,7 @@ export default {
   }
   &__randomMember-title {
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
     margin: 0 auto;
     padding: 0px 0px;
   }
