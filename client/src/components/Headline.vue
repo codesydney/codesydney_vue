@@ -19,6 +19,12 @@
       </router-link>
     </div>
   </div>
+  <v-skeleton-loader
+    v-else
+    v-bind="sklAttrs"
+    type="card-heading, image, card-heading"
+    class="mx-auto"
+  ></v-skeleton-loader>
 </template>
 
 <script>
@@ -27,6 +33,13 @@ export default {
   data() {
     return {
       members: [],
+      sklAttrs: {
+        class: 'mb-6',
+        loading: true,
+        elevation: 2,
+        width: '350px',
+        height: '350px',
+      },
     };
   },
   created() {
