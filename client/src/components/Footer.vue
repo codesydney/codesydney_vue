@@ -9,7 +9,7 @@
         </a>
     </div>
     <div><h4>Code.Sydney Pty Ltd &copy; ABN 37 625 436 151</h4></div>
-    <div><a href="Code.Sydney_Website_Privacy_Policy.pdf" class="footer_link" target="_blank">Privacy Policy</a></div>
+    <div><a href="/pdf/Code.Sydney_Website_Privacy_Policy.pdf" class="footer_link" target="_blank">Privacy Policy</a></div>
   </div>
 </template>
 
