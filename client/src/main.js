@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import {
   faLinkedin,
-  faFacebookSquare,
+  faFacebookSquare,faMeetup, faSlackHash, faInstagram, faGithub, faYoutube, faFreeCodeCamp
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
@@ -28,7 +28,13 @@ library.add(
   faBars,
   faUser,
   faEnvelope,
-  faPencilAlt
+  faPencilAlt,
+  faMeetup,
+  faSlackHash,
+  faInstagram,
+  faGithub,
+  faYoutube,
+  faFreeCodeCamp
 );
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
