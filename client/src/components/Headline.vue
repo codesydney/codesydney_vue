@@ -1,10 +1,8 @@
 <template>
-  <div class="headline">
+  <div class="headline" v-if="randomMember">
     <div class="headline__randomMember">
       <div class="headline__randomMember-title">
-        <div v-show="randomMember">
-          Meet {{ randomMember.name }}, {{ randomMember.headline }}
-        </div>
+        <div>Meet {{ randomMember.name }}, {{ randomMember.headline }}</div>
       </div>
       <div>
         <img
@@ -21,6 +19,12 @@
       </router-link>
     </div>
   </div>
+  <v-skeleton-loader
+    v-else
+    v-bind="sklAttrs"
+    type="card-heading, image, card-heading"
+    class="mx-auto"
+  ></v-skeleton-loader>
 </template>
 
 <script>
@@ -29,6 +33,13 @@ export default {
   data() {
     return {
       members: [],
+      sklAttrs: {
+        class: 'mb-6',
+        loading: true,
+        elevation: 2,
+        width: '350px',
+        height: '350px',
+      },
     };
   },
   created() {
@@ -107,7 +118,7 @@ export default {
   }
   &__randomMember-title {
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
     margin: 0 auto;
     padding: 0px 0px;
   }
