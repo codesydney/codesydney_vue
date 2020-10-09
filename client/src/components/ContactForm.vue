@@ -10,7 +10,7 @@
       </a>
     </v-card-title>
 
-    <v-form method action="/">
+    <v-form method action="/" class="contact-form">
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -160,6 +160,10 @@ a {
   box-sizing: border-box;
 }
 
+.input-group {
+  margin-bottom: 1rem;
+}
+
 .input-group > .form-control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
@@ -229,5 +233,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+.contact-form {
+  padding: 1.5vh 1.25vw 2rem 1.25vw;
 }
 </style>
