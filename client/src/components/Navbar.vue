@@ -124,8 +124,9 @@ li {
 }
 
 .openbtn {
+  position: fixed;
   top: 20px;
-  left: 45px;
+  left: 20px;
   width: 30px;
   height: 25px;
   font-size: 2rem;
