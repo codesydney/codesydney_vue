@@ -83,7 +83,7 @@ export default {
     font-size: 1rem;
     /* font-weight: bold; */
     color: white;
-    background-color: #224365;
+    background-color: #3181b9;
     cursor: pointer;
     transition: all 0.4s;
     &:hover {
@@ -108,7 +108,7 @@ export default {
       left: 0;
       z-index: -1;
       transition: all 0.4s;
-      background-color: #224365;
+      background-color: #3181b9;
     }
   }
   &__randomMember-portrait {
