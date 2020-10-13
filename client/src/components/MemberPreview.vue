@@ -16,7 +16,6 @@
           class="memberPreview__member-portrait"
         />
 
-
         <h2>{{ member.name }}</h2>
         <div class="memberPreview__member-title">{{ member.title }}</div>
 

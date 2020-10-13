@@ -1,10 +1,14 @@
 <template>
-  <v-card>
-    <v-card-title>Contact</v-card-title>
-    <CalendlyWidget />
-    <v-divider inset></v-divider>
-    <ContactForm />
-  </v-card>
+  <!-- divs needs to be removed once there is a navbar on this page. -->
+  <div>
+    <div style="height: 80px"></div>
+    <v-card>
+      <v-card-title>Contact</v-card-title>
+      <CalendlyWidget />
+      <v-divider inset></v-divider>
+      <ContactForm />
+    </v-card>
+  </div>
 </template>
 
 <script>
