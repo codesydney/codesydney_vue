@@ -42,7 +42,7 @@ export default {};
     font-size: 40px;
     margin: 0 auto;
     padding: 0px 0px;
-  };
+  }
   .subtitle {
     font-size: 30px;
     margin: 0 auto;
