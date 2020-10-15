@@ -2,17 +2,18 @@
   <v-app id="app">
     <!-- Banner/Header -->
     <Navbar />
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue'
+import Footer from './components/Footer.vue';
 
 export default {
   components: {
-    Navbar,Footer
+    Navbar,
+    Footer,
   },
 };
 </script>
