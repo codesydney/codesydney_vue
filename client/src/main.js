@@ -8,7 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import {
   faLinkedin,
-  faFacebookSquare,faMeetup, faSlackHash, faInstagram, faGithub, faYoutube, faFreeCodeCamp
+  faFacebookSquare,
+  faMeetup,
+  faSlackHash,
+  faInstagram,
+  faGithub,
+  faYoutube,
+  faFreeCodeCamp,
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
