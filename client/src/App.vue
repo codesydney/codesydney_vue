@@ -2,6 +2,11 @@
   <v-app id="app">
     <!-- Banner/Header -->
     <Navbar />
+    <v-main>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
     <Footer />
   </v-app>
 </template>
