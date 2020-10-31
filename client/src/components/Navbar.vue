@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <v-app-bar app flat short value="false" color="primary">
-      <v-app-bar-nav-icon>
+    <v-app-bar app flat short color="primary">
+      <v-app-bar-nav-icon @click="$emit('nav-btn-clicked')">
         <font-awesome-icon
           color="white"
           icon="bars"
@@ -17,7 +17,7 @@
           -ms-user-select: none;
           user-select: none;
         "
-        @click="$router.push({ name: 'home' })"
+        @click="$router.push({ name: 'Home' })"
         >CodeSydney</v-toolbar-title
       >
       <v-spacer></v-spacer>

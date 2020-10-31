@@ -47,10 +47,8 @@ export default {
       .getMembers()
       .then((res) => {
         this.members = res.data;
-        console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
       });
   },
   methods: {
@@ -63,7 +61,6 @@ export default {
       const randomIndex = this.members[
         Math.floor(Math.random() * this.members.length)
       ];
-      console.log(randomIndex);
       return randomIndex;
     },
   },

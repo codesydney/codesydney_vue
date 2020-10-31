@@ -23,6 +23,8 @@ import {
   faUser,
   faEnvelope,
   faPencilAlt,
+  faUserTie,
+  faHome
 } from '@fortawesome/free-solid-svg-icons';
 
 import vuetify from './plugins/vuetify';
@@ -40,7 +42,9 @@ library.add(
   faInstagram,
   faGithub,
   faYoutube,
-  faFreeCodeCamp
+  faFreeCodeCamp,
+  faUserTie,
+  faHome,
 );
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
