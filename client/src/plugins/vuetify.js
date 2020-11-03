@@ -9,8 +9,12 @@ export default new Vuetify({
   },
 
   theme: {
-    primary: 'rgba(25, 25, 112, 1)',
-    secondary: 'rgba(49, 129, 185, 1)',
-    accent: 'rgba(45, 182, 227, 1)',
+    themes: {
+      light: {
+        primary: '#3181b9',
+        secondary: '#2db6e3',
+        accent: '#191970',
+      },
+    },
   },
 });

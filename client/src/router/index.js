@@ -9,18 +9,21 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
+    icon: 'home',
     component: Home,
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: Contact,
+    path: '/friends',
+    name: 'Friends',
+    icon: 'user-tie',
+    component: Friends,
   },
   {
-    path: '/friends',
-    name: 'friends',
-    component: Friends,
+    path: '/contact',
+    name: 'Contact',
+    icon: 'envelope',
+    component: Contact,
   },
 ];
 
@@ -30,3 +33,4 @@ const router = new VueRouter({
 });
 
 export default router;
+export const Routes = routes;
